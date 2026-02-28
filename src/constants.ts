@@ -7,7 +7,7 @@ export const IMAGES = {
   heroMain: "/images/hero-main.jpg",
   heroSide: "/images/hero-side-detail.jpg",
   heroCleaning: "/images/hero-cleaning 2.png",
-  heroCleaningPNG: "/images/hero-cleaning.png.png",
+  heroCleaningPNG: "/images/hero-cleaning.png",
   heroBg: "/images/hero-bg.jpg",
 
   aboutPortrait: "/images/why-aktas-portrait.jpg",
@@ -22,24 +22,24 @@ export const IMAGES = {
   servicesBg: "/images/services-bg.jpg",
   serviceCTA: "/images/service-cta-bg.jpg",
 
-  serviceUnterhalts: "/images/service-unterhaltsreinigung.png.png",
+  serviceUnterhalts: "/images/service-unterhaltsreinigung.png",
   serviceUnterhaltsDetail: "/images/service-detail-unterhalts.jpg",
   serviceUnterhaltsJpg: "/images/service-unterhalts.jpg",
   serviceBueroDetail: "/images/service-detail-buero.jpg",
 
-  serviceGlas: "/images/service-glasreinigung.png.png",
+  serviceGlas: "/images/service-glasreinigung.png",
   serviceGlasDetail: "/images/service-detail-glas.jpg",
   serviceGlasJpg: "/images/service-glas.jpg",
 
-  serviceGrundreinigung: "/images/service-grundreinigung.png.png",
+  serviceGrundreinigung: "/images/service-grundreinigung.png",
   serviceGrundreinigungBg: "/images/service-grundreinigung-bg.jpg",
 
-  serviceSonderreinigung: "/images/service-sonderreinigung.png.png",
+  serviceSonderreinigung: "/images/service-sonderreinigung.png",
 
-  serviceTreppenhaus: "/images/service-treppenhaus.png.png",
+  serviceTreppenhaus: "/images/service-treppenhaus.png",
   serviceTreppenhausDetail: "/images/service-detail-treppe.jpg",
 
-  serviceFassade: "/images/service-fassade.png.png",
+  serviceFassade: "/images/service-fassade.png",
   serviceAussenanlagen: "/images/service-aussenanlagen.jpg",
 
   kontaktHero: "/images/kontakt-hero.jpg",
@@ -112,7 +112,7 @@ export const SERVICES = [
     features: ["Brandschadensanierung", "Desinfektion", "Schimmelsanierung", "Tatortreinigung", "Entrümpelung", "Notfalleinsatz"],
     image: IMAGES.serviceSonderreinigung,
     imageDetail: IMAGES.kontaktDetail,
-    imageAlt: "/images/service-sonderreinigung.png.png",
+    imageAlt: "/images/service-sonderreinigung.png",
     color: "#c9a84c",
   },
   {
@@ -127,7 +127,7 @@ export const SERVICES = [
     features: ["Mehrfamilienhäuser", "Wohnanlagen", "Gewerbeobjekte", "Briefkästen", "Keller & Flure", "Wöchentlicher Turnus"],
     image: IMAGES.serviceTreppenhaus,
     imageDetail: IMAGES.serviceTreppenhausDetail,
-    imageAlt: "/images/service-treppenhaus.png.png",
+    imageAlt: "/images/service-treppenhaus.png",
     color: "#00c4b3",
   },
   {
@@ -142,7 +142,7 @@ export const SERVICES = [
     features: ["Klinker & Putz", "Naturstein", "Kalkschlämme", "Graffiti-Entfernung", "Hydrophobierung", "Dachrinnenreinigung"],
     image: IMAGES.serviceFassade,
     imageDetail: IMAGES.serviceAussenanlagen,
-    imageAlt: "/images/service-fassade.png.png",
+    imageAlt: "/images/service-fassade.png",
     color: "#003580",
   },
 ];

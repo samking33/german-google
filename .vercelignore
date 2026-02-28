@@ -1,0 +1,11 @@
+# Build artifacts and local deps
+node_modules
+dist
+.git
+
+# Local/macOS artifacts
+.DS_Store
+
+# Source asset folders (deployment uses public/*)
+images/
+documents/
