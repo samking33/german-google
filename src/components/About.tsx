@@ -161,7 +161,7 @@ export default function About() {
               transition={{ delay: i * 0.08 }}
               className="flex flex-col gap-3 p-8 border-r border-white/8 last:border-r-0 group hover:bg-white/5 transition-colors duration-400"
             >
-              <stat.icon size={18} className="text-brand-teal opacity-50 group-hover:opacity-100 transition-opacity" />
+              <stat.icon size={26} className="text-brand-teal opacity-85 group-hover:opacity-100 transition-opacity" />
               <CountUp value={stat.value} suffix={stat.suffix} />
               <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-white/30">{stat.label}</span>
             </motion.div>

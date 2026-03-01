@@ -40,7 +40,7 @@ function StatementSection() {
           <blockquote className="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-black leading-[0.95] tracking-tight max-w-5xl mx-auto">
             „WIR SIND ERST ZUFRIEDEN,<br />
             <span className="italic font-normal text-white/40">WENN DER KUNDE</span><br />
-            ZUFRIEDEN IST."
+            ZUFRIEDEN IST.“
           </blockquote>
           <p className="text-white/40 mt-8 text-sm font-light tracking-[0.2em] uppercase">— Mithat Aktas, Geschäftsführer</p>
         </motion.div>

@@ -1,7 +1,24 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import React, { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Send, Clock, ArrowUpRight } from "lucide-react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { CONTACT, IMAGES } from "../constants";
+
+const companyCoords: [number, number] = [50.1736576, 8.7373316];
+const companyMapLink = `https://www.openstreetmap.org/?mlat=${companyCoords[0]}&mlon=${companyCoords[1]}#map=17/${companyCoords[0]}/${companyCoords[1]}`;
+const companyMarkerIcon = L.icon({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,7 +38,7 @@ export default function Contact() {
     { icon: Phone, label: "Vertrieb & Kalkulation", value: CONTACT.sales, sub: CONTACT.salesName, href: `tel:${CONTACT.sales}` },
     { icon: Phone, label: "Zentrale", value: CONTACT.phone, sub: "Mo–Fr 08–16 Uhr", href: `tel:${CONTACT.phone}` },
     { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Antwort innerhalb 24h", href: `mailto:${CONTACT.email}` },
-    { icon: MapPin, label: "Adresse", value: CONTACT.address, sub: CONTACT.city, href: "#" },
+    { icon: MapPin, label: "Adresse", value: CONTACT.address, sub: CONTACT.city, href: companyMapLink },
   ];
 
   return (
@@ -208,6 +225,42 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+
+        {/* MAP */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="mt-14 border border-white/8 overflow-hidden"
+        >
+          <div className="flex items-center justify-between px-6 py-4 bg-white/[0.04] border-b border-white/8">
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-teal">Unser Standort</p>
+            <a
+              href={companyMapLink}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[10px] uppercase tracking-[0.2em] text-white/50 hover:text-brand-teal transition-colors"
+            >
+              In OpenStreetMap öffnen
+            </a>
+          </div>
+          <div className="h-[360px] w-full">
+            <MapContainer center={companyCoords} zoom={16} scrollWheelZoom={false} className="h-full w-full">
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={companyCoords} icon={companyMarkerIcon}>
+                <Popup>
+                  {CONTACT.name}
+                  <br />
+                  {CONTACT.address}, {CONTACT.city}
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

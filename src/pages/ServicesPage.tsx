@@ -86,28 +86,12 @@ export default function ServicesPage() {
                     className="w-full h-full object-cover absolute inset-0"
                     style={{ minHeight: 420 }}
                   />
-                  <div className="absolute inset-0 bg-brand-dark/20" />
                   {/* Service number */}
                   <div className="absolute top-8 left-8 z-10">
-                    <div className="font-serif text-8xl font-black text-white/10 leading-none">{service.id}</div>
+                    <div className="font-serif text-8xl font-black text-white/40 drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)] leading-none">
+                      {service.id}
+                    </div>
                   </div>
-                  {/* Detail image floating */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    style={{
-                      position: "absolute",
-                      bottom: 24,
-                      [i % 2 === 0 ? "right" : "left"]: 24,
-                      width: 160,
-                      height: 120,
-                    }}
-                    className="overflow-hidden border-2 border-white/20 shadow-2xl"
-                  >
-                    <img src={service.imageDetail} alt="" className="w-full h-full object-cover" />
-                  </motion.div>
                 </div>
 
                 {/* CONTENT */}
