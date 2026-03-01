@@ -5,7 +5,3 @@ dist
 
 # Local/macOS artifacts
 .DS_Store
-
-# Source asset folders (deployment uses public/*)
-images/
-documents/
