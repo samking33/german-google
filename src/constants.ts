@@ -1,4 +1,5 @@
 import { ShieldCheck, Users, Clock, Award, Star, Leaf } from "lucide-react";
+import germanLogo from "./assets/german-logo.png";
 
 /* ─────────────────────────────────────────────
    IMAGES – all from /images folder
@@ -51,7 +52,7 @@ export const IMAGES = {
   footerAtmosphere: "/images/footer-atmosphere.png",
 };
 
-export const LOGO = "/documents/german-logo.png";
+export const LOGO = germanLogo;
 
 export type ServiceCategory = "cleaning" | "glass-exterior" | "construction" | "facility";
 export type ServiceItem = {
