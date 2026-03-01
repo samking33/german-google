@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { IMAGES } from "../constants";
 
 const words = ["PROFESSIONELL", "ZUVERLÄSSIG", "MAKELLOS", "PRÄZISE"];
 
@@ -19,7 +18,7 @@ export default function Hero() {
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.45, 0.65]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.62, 0.82]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,19 +37,26 @@ export default function Hero() {
         style={{ y, scale }}
         className="absolute inset-0 z-0"
       >
-        <img
-          src={IMAGES.heroMain}
-          alt="Professionelle Gebäudereinigung"
+        <video
           className="w-full h-full object-cover"
-        />
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-label="Professionelle Gebäudereinigung"
+        >
+          <source src="/videos/hero.mov" />
+        </video>
       </motion.div>
 
       {/* ── GRADIENT OVERLAYS ── */}
       <motion.div
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/30 to-black/80"
+        className="absolute inset-0 z-10 bg-gradient-to-b from-black/85 via-black/65 to-black/90"
       />
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/30 to-black/55" />
+      <div className="absolute inset-0 z-10 bg-black/20" />
 
       {/* ── GRID LINES ── */}
       <div className="absolute inset-0 z-10 opacity-10"
@@ -59,27 +65,6 @@ export default function Hero() {
           backgroundSize: "80px 80px"
         }}
       />
-
-      {/* ── FLOATING SIDE IMAGE ── */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden xl:block"
-      >
-        <div className="w-72 h-96 overflow-hidden rounded-sm shadow-2xl border border-white/10">
-          <img
-            src={IMAGES.heroCleaning}
-            alt="Reinigungsprofis bei der Arbeit"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        </div>
-        <div className="mt-4 flex items-center gap-3">
-          <div className="w-2 h-2 bg-brand-teal rounded-full animate-pulse" />
-          <span className="text-[10px] uppercase tracking-[0.25em] text-white/50 font-bold">Bad Vilbel, Hessen</span>
-        </div>
-      </motion.div>
 
       {/* ── ROTATING BADGE ── */}
       <div className="absolute right-8 bottom-32 z-20 hidden xl:block">
@@ -107,7 +92,7 @@ export default function Hero() {
       {/* ── MAIN CONTENT ── */}
       <motion.div
         style={{ y: yText, opacity }}
-        className="relative z-20 max-w-[1440px] mx-auto px-8 w-full"
+        className="relative z-20 max-w-[1440px] mx-auto px-8 w-full drop-shadow-[0_8px_30px_rgba(0,0,0,0.75)]"
       >
         {/* Label */}
         <motion.div
@@ -117,7 +102,7 @@ export default function Hero() {
           className="flex items-center gap-4 mb-8"
         >
           <div className="w-12 h-[1px] bg-brand-teal" />
-          <span className="text-[11px] uppercase tracking-[0.35em] font-bold text-brand-teal">
+          <span className="text-[11px] uppercase tracking-[0.35em] font-bold text-[#69e6db]">
             Aktas Gebäudereinigung GmbH · Seit 2001
           </span>
         </motion.div>
@@ -138,7 +123,7 @@ export default function Hero() {
             initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1.1, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[11vw] md:text-[8vw] lg:text-[7vw] xl:text-[6.5vw] font-serif italic font-normal leading-[0.88] tracking-[-0.02em] text-brand-teal"
+            className="text-[11vw] md:text-[8vw] lg:text-[7vw] xl:text-[6.5vw] font-serif italic font-normal leading-[0.88] tracking-[-0.02em] text-[#69e6db]"
           >
             SIE IMMER DEN
           </motion.div>
@@ -161,10 +146,10 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10"
         >
-          <p className="text-lg md:text-xl text-white/55 leading-relaxed font-light max-w-lg">
+          <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light max-w-lg">
             Professionelle Gebäudereinigung für Unternehmen, Gewerbe und Wohnanlagen.
             <br className="hidden md:block" />
-            <span className="text-brand-teal font-medium">Zuverlässig. Diskret. Makellos.</span> Seit über 23 Jahren.
+            <span className="text-[#69e6db] font-medium">Zuverlässig. Diskret. Makellos.</span> Seit über 23 Jahren.
           </p>
 
           <div className="flex items-center gap-6">
@@ -177,7 +162,7 @@ export default function Hero() {
             </Link>
             <Link
               to="/kontakt"
-              className="group flex items-center gap-4 border border-white/20 text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:border-brand-teal hover:text-brand-teal transition-all duration-400"
+              className="group flex items-center gap-4 border border-white/35 text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:border-[#69e6db] hover:text-[#69e6db] transition-all duration-400"
             >
               Kontakt
             </Link>

@@ -1,4 +1,4 @@
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -13,17 +13,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastY, setLastY] = useState(0);
   const location = useLocation();
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", (y) => {
-    setScrolled(y > 60);
-    setHidden(y > 120 && y > lastY);
-    setLastY(y);
-  });
 
   useEffect(() => {
     setIsOpen(false);
@@ -32,17 +22,14 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        animate={{ y: hidden ? -100 : 0 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
-            ? "bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/20"
-            : "bg-transparent"
-          }`}
+        className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-black/10 shadow-sm"
       >
         <div className="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
           {/* LOGO */}
           <Link to="/" className="flex items-center group">
-            <img src={LOGO} alt="Aktas Gebäudereinigung Logo" className="h-14 w-auto max-w-[220px] object-contain flex-shrink-0" />
+            <img src={LOGO} alt="Aktas Gebäudereinigung Logo" className="h-[4.5rem] w-auto max-w-[290px] object-contain flex-shrink-0" />
           </Link>
 
           {/* DESKTOP NAV */}
@@ -58,7 +45,7 @@ export default function Navbar() {
                   to={item.path}
                   className={`relative text-[13px] font-medium tracking-wide transition-colors duration-300 group ${location.pathname === item.path
                       ? "text-brand-teal"
-                      : "text-white/70 hover:text-white"
+                      : "text-black/75 hover:text-black"
                     }`}
                 >
                   {item.name}
@@ -73,7 +60,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:061019861163"
-              className="text-[12px] font-mono text-white/40 hover:text-brand-teal transition-colors"
+              className="text-[12px] font-mono text-black/60 hover:text-brand-teal transition-colors"
             >
               +49 6101 98611 63
             </a>
@@ -88,7 +75,7 @@ export default function Navbar() {
 
           {/* MOBILE TOGGLE */}
           <button
-            className="lg:hidden text-white w-10 h-10 flex items-center justify-center"
+            className="lg:hidden text-black w-10 h-10 flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Menü"
           >
@@ -105,7 +92,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#0a0a0a] z-40 flex flex-col justify-center px-10"
+            className="fixed inset-0 bg-white z-40 flex flex-col justify-center px-10"
           >
             <div className="flex flex-col gap-2">
               {navItems.map((item, i) => (
@@ -118,7 +105,7 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block text-5xl font-serif py-4 border-b border-white/5 transition-colors ${location.pathname === item.path ? "text-brand-teal italic" : "text-white/60 hover:text-white"
+                    className={`block text-5xl font-serif py-4 border-b border-black/10 transition-colors ${location.pathname === item.path ? "text-brand-teal italic" : "text-black/70 hover:text-black"
                       }`}
                   >
                     {item.name}
@@ -140,7 +127,7 @@ export default function Navbar() {
               >
                 Anfrage senden
               </Link>
-              <a href="tel:061019861163" className="text-white/40 text-center text-sm">
+              <a href="tel:061019861163" className="text-black/60 text-center text-sm">
                 061019861163
               </a>
             </motion.div>

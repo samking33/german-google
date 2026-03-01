@@ -1,102 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import { CONTACT, LOGO } from "./constants";
-
-/* ── CUSTOM CURSOR ── */
-function CustomCursor() {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [ring, setRing] = useState({ x: -100, y: -100 });
-  const [clicking, setClicking] = useState(false);
-  const [hovering, setHovering] = useState(false);
-
-  useEffect(() => {
-    const isTouchDevice = window.matchMedia("(hover: none)").matches;
-    if (isTouchDevice) return;
-
-    let rafId: number;
-    let currentX = -100, currentY = -100;
-
-    const onMove = (e: MouseEvent) => {
-      currentX = e.clientX;
-      currentY = e.clientY;
-      setPos({ x: e.clientX, y: e.clientY });
-    };
-
-    let ringX = -100, ringY = -100;
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-    const animateRing = () => {
-      ringX = lerp(ringX, currentX, 0.12);
-      ringY = lerp(ringY, currentY, 0.12);
-      setRing({ x: ringX, y: ringY });
-      rafId = requestAnimationFrame(animateRing);
-    };
-    animateRing();
-
-    const onDown = () => setClicking(true);
-    const onUp = () => setClicking(false);
-
-    const onOver = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      setHovering(!!t.closest("a, button, [data-cursor-hover]"));
-    };
-
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mousedown", onDown);
-    document.addEventListener("mouseup", onUp);
-    document.addEventListener("mouseover", onOver);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mousedown", onDown);
-      document.removeEventListener("mouseup", onUp);
-      document.removeEventListener("mouseover", onOver);
-    };
-  }, []);
-
-  return (
-    <>
-      <div
-        style={{
-          left: pos.x,
-          top: pos.y,
-          transform: `translate(-50%, -50%) scale(${clicking ? 0.5 : 1})`,
-          background: hovering ? "#00c4b3" : "#003580",
-          transition: "transform 0.1s ease, background 0.3s ease",
-          position: "fixed",
-          width: hovering ? 12 : 8,
-          height: hovering ? 12 : 8,
-          borderRadius: "50%",
-          pointerEvents: "none",
-          zIndex: 9999,
-        }}
-      />
-      <div
-        style={{
-          left: ring.x,
-          top: ring.y,
-          transform: `translate(-50%, -50%) scale(${hovering ? 1.8 : clicking ? 0.7 : 1})`,
-          border: `1.5px solid ${hovering ? "#00c4b3" : "#003580"}`,
-          opacity: hovering ? 0.5 : 0.35,
-          transition: "transform 0.3s ease, opacity 0.3s ease, border-color 0.3s ease",
-          position: "fixed",
-          width: 36,
-          height: 36,
-          borderRadius: "50%",
-          pointerEvents: "none",
-          zIndex: 9998,
-        }}
-      />
-    </>
-  );
-}
 
 /* ── SCROLL PROGRESS – unused; App uses inline version below ── */
 
@@ -207,15 +117,12 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen font-sans bg-brand-dark" style={{ cursor: "none" }}>
+      <div className="min-h-screen font-sans bg-brand-dark">
         {/* Scroll Progress */}
         <motion.div
           style={{ scaleX, background: "linear-gradient(90deg, #003580, #00c4b3)" }}
           className="fixed top-0 left-0 right-0 h-[2px] z-[100] origin-left"
         />
-
-        {/* Custom Cursor */}
-        <CustomCursor />
 
         {/* Navbar */}
         <Navbar />
