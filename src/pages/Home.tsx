@@ -161,12 +161,14 @@ function ReferencesSection() {
             </h2>
           </div>
           <div className="max-w-xl text-black/60 leading-relaxed font-light text-lg">
-            <p>Dieser Bereich ist für Referenzen reserviert.</p>
-            <p className="mt-4">
-              Sobald Freigaben vorliegen, führen wir hier ausschließlich die Namen unserer
-              zufriedenen Auftraggeber auf.
+            <p>
+              Hier finden Sie eine Auswahl unserer Kunden, die auf die
+              Leistungen von Aktas Gebäudereinigung vertrauen.
             </p>
-            <p className="mt-4 text-black/40">(Kundennamen folgen.)</p>
+            <p className="mt-4">
+              Wir betreuen Kunden aus Gewerbe, Verwaltung und Bauprojekten
+              deutschlandweit.
+            </p>
           </div>
         </div>
 
@@ -174,9 +176,9 @@ function ReferencesSection() {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="h-24 border border-black/10 bg-white/60 flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-black/30"
+              className="h-24 border border-black/10 bg-white/60 flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-black/35"
             >
-              Reserviert
+              Kundenname
             </div>
           ))}
         </div>
