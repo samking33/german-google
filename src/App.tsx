@@ -59,7 +59,7 @@ function Footer() {
               <a href={`mailto:${CONTACT.email}`} className="text-white text-sm font-light hover:text-brand-teal transition-colors">
                 E-Mail: {CONTACT.email}
               </a>
-              <p className="text-white/85 text-sm font-light">Öffnungszeiten: Montag – Freitag, 08:00 – 14:00</p>
+              <p className="text-white text-sm font-light">Öffnungszeiten: {CONTACT.hours}</p>
               <p className="text-white/85 text-sm font-light">{CONTACT.address}</p>
               <p className="text-white/85 text-sm font-light">{CONTACT.city}</p>
             </div>
@@ -68,20 +68,18 @@ function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
-          <p className="text-white/80 text-xs font-light">
-            © 2024 Aktas Gebäudereinigung GmbH — Geschäftsführer: {CONTACT.ceo}
-          </p>
+          <p className="text-white/85 text-xs font-light">© 2026 Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-8">
-            <a href="#impressum" className="text-white text-xs hover:text-brand-teal transition-colors">Impressum</a>
-            <a href="#" className="text-white text-xs hover:text-brand-teal transition-colors">Datenschutz</a>
-            <a href="#" className="text-white text-xs hover:text-brand-teal transition-colors">AGB</a>
+            <a href="#impressum" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Impressum</a>
+            <a href="#" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Datenschutz</a>
+            <a href="#" className="text-white/90 text-xs hover:text-brand-teal transition-colors">AGB</a>
           </div>
         </div>
 
         {/* Impressum */}
-        <div id="impressum" className="mt-10 bg-white text-black rounded-sm p-8 border border-black/10">
-          <p className="text-xs uppercase tracking-[0.3em] font-bold text-black/60 mb-4">Impressum</p>
-          <div className="text-sm leading-relaxed text-black/90">
+        <div id="impressum" className="mt-10 bg-[#f7f7f2] text-black rounded-sm p-8 border border-black/20">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold text-black mb-4">Impressum</p>
+          <div className="text-sm leading-relaxed text-black">
             <p>Aktas Gebäudereinigung GmbH</p>
             <p>Friedrich-Ebert-Str. 47</p>
             <p>61118 Bad Vilbel</p>

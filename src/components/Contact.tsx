@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   const contactItems = [
-    { icon: Phone, label: "Telefon", value: CONTACT.phone, sub: "Montag – Freitag, 08:00 – 14:00", href: `tel:${CONTACT.phone}` },
+    { icon: Phone, label: "Telefon", value: CONTACT.phone, sub: CONTACT.hours, href: `tel:${CONTACT.phone}` },
     { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Antwort innerhalb von 24 Stunden", href: `mailto:${CONTACT.email}` },
     { icon: MapPin, label: "Adresse", value: CONTACT.address, sub: CONTACT.city, href: companyMapLink },
   ];
@@ -114,8 +114,7 @@ export default function Contact() {
               <div>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-teal mb-1">Öffnungszeiten</p>
                 <div className="text-white/60 text-sm font-light">
-                  <p>Montag – Freitag</p>
-                  <p>08:00 – 14:00</p>
+                  <p>{CONTACT.hours}</p>
                 </div>
               </div>
             </motion.div>

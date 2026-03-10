@@ -43,7 +43,7 @@ export default function About() {
               className="flex items-center gap-4 mb-6"
             >
               <div className="w-10 h-[1px] bg-brand-teal" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">Über Aktas Gebäudereinigung</span>
+              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">Über Aktas</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -65,10 +65,10 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="max-w-md text-white/50 leading-relaxed font-light pt-4 md:pt-12 text-lg"
           >
-            Die Aktas Gebäudereinigung GmbH ist ein professionelles Reinigungsunternehmen, das im
-            Jahr 2001 gegründet wurde und seit 2013 als GmbH tätig ist. Seitdem hat sich das
-            Unternehmen durch Qualität, Zuverlässigkeit und faire Preise einen hervorragenden Ruf
-            aufgebaut.
+            Gegründet im Jahr 2001 und seit 2013 als GmbH geführt, steht die Aktas
+            Gebäudereinigung für Qualität, Zuverlässigkeit und transparente Abläufe. Als
+            Dienstleistungsbetrieb mit bundesweitem Einsatzgebiet arbeiten wir wirtschaftlich,
+            strukturiert und kundenorientiert.
           </motion.p>
         </div>
 
@@ -125,16 +125,16 @@ export default function About() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/8 p-10 rounded-sm flex-1 flex flex-col justify-between">
               <div className="flex flex-col gap-6 mb-10">
                 <p className="text-white/70 leading-relaxed text-lg font-light">
-                  Mit einem stetig wachsenden Kundenstamm und rund 70 Mitarbeitern bietet die Aktas
-                  Gebäudereinigung professionelle Reinigungsdienstleistungen in ganz Deutschland an.
-                  Unser Unternehmen legt großen Wert auf hochwertige Dienstleistungen, transparente
-                  Dokumentation sowie effiziente und wirtschaftliche Arbeitsabläufe.
+                  Mit einem stetig wachsenden Kundenstamm und rund 70 Mitarbeitenden bietet die
+                  Aktas Gebäudereinigung professionelle Leistungen für Gewerbe-, Bau- und
+                  Bestandsobjekte. Jede Ausführung erfolgt nachvollziehbar dokumentiert und exakt
+                  auf den Bedarf des Objekts abgestimmt.
                 </p>
                 <p className="text-white/50 leading-relaxed font-light">
-                  Die Zufriedenheit unserer Kunden steht für uns an erster Stelle. Durch geschultes
-                  Personal und flexible Einsatzmöglichkeiten stellen wir sicher, dass jedes Projekt
-                  auf höchstem Niveau durchgeführt wird. Die Firma Aktas ist erst zufrieden, wenn der
-                  Kunde zufrieden ist.
+                  Unser wichtigstes Ziel ist Kundenzufriedenheit als Grundlage langfristiger
+                  Partnerschaften. Dafür setzen wir auf geschultes Personal, flexible Einsatzzeiten
+                  und eine verlässliche Umsetzung: Wir sind erst zufrieden, wenn unsere Kunden
+                  zufrieden sind.
                 </p>
               </div>
               <Link

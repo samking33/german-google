@@ -161,12 +161,12 @@ function ReferencesSection() {
             </h2>
           </div>
           <div className="max-w-xl text-black/60 leading-relaxed font-light text-lg">
-            <p>Wir sind stolz darauf, mit vielen zufriedenen Kunden in ganz Deutschland zusammenzuarbeiten.</p>
+            <p>Dieser Bereich ist für Referenzen reserviert.</p>
             <p className="mt-4">
-              Nachfolgend finden Sie eine Auswahl von Unternehmen, die auf die Dienstleistungen der
-              Aktas Gebäudereinigung vertrauen.
+              Sobald Freigaben vorliegen, führen wir hier ausschließlich die Namen unserer
+              zufriedenen Auftraggeber auf.
             </p>
-            <p className="mt-4 text-black/40">(Kundennamen werden in Kürze ergänzt.)</p>
+            <p className="mt-4 text-black/40">(Kundennamen folgen.)</p>
           </div>
         </div>
 
@@ -176,7 +176,7 @@ function ReferencesSection() {
               key={i}
               className="h-24 border border-black/10 bg-white/60 flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-black/30"
             >
-              Platzhalter
+              Reserviert
             </div>
           ))}
         </div>
