@@ -144,6 +144,47 @@ function WhyAktas() {
   );
 }
 
+/* ── REFERENCES SECTION ── */
+function ReferencesSection() {
+  return (
+    <section className="bg-brand-warm py-28 px-8">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16">
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-10 h-[1px] bg-brand-blue" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-blue font-bold">Referenzen</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-serif font-black leading-[0.92] tracking-tight">
+              UNSERE<br />
+              <span className="italic font-normal text-black/25">KUNDEN.</span>
+            </h2>
+          </div>
+          <div className="max-w-xl text-black/60 leading-relaxed font-light text-lg">
+            <p>Wir sind stolz darauf, mit vielen zufriedenen Kunden in ganz Deutschland zusammenzuarbeiten.</p>
+            <p className="mt-4">
+              Nachfolgend finden Sie eine Auswahl von Unternehmen, die auf die Dienstleistungen der
+              Aktas Gebäudereinigung vertrauen.
+            </p>
+            <p className="mt-4 text-black/40">(Kundennamen werden in Kürze ergänzt.)</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-24 border border-black/10 bg-white/60 flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-black/30"
+            >
+              Platzhalter
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div>
@@ -152,6 +193,7 @@ export default function Home() {
       <StatementSection />
       <WhyAktas />
       <About />
+      <ReferencesSection />
       <Contact />
     </div>
   );

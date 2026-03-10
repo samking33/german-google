@@ -35,9 +35,8 @@ export default function Contact() {
   };
 
   const contactItems = [
-    { icon: Phone, label: "Vertrieb & Kalkulation", value: CONTACT.sales, sub: CONTACT.salesName, href: `tel:${CONTACT.sales}` },
-    { icon: Phone, label: "Zentrale", value: CONTACT.phone, sub: "Mo–Fr 08–16 Uhr", href: `tel:${CONTACT.phone}` },
-    { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Antwort innerhalb 24h", href: `mailto:${CONTACT.email}` },
+    { icon: Phone, label: "Telefon", value: CONTACT.phone, sub: "Montag – Freitag, 08:00 – 14:00", href: `tel:${CONTACT.phone}` },
+    { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Antwort innerhalb von 24 Stunden", href: `mailto:${CONTACT.email}` },
     { icon: MapPin, label: "Adresse", value: CONTACT.address, sub: CONTACT.city, href: companyMapLink },
   ];
 
@@ -113,8 +112,11 @@ export default function Contact() {
             >
               <Clock size={18} className="text-brand-teal flex-shrink-0" />
               <div>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-teal mb-1">Geschäftszeiten</p>
-                <p className="text-white/60 text-sm font-light">{CONTACT.hours}</p>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-teal mb-1">Öffnungszeiten</p>
+                <div className="text-white/60 text-sm font-light">
+                  <p>Montag – Freitag</p>
+                  <p>08:00 – 14:00</p>
+                </div>
               </div>
             </motion.div>
 
@@ -163,7 +165,7 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="ihre@email.de"
+                    placeholder="Ihre E-Mail-Adresse"
                     className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
                   />
                 </div>
@@ -177,12 +179,18 @@ export default function Contact() {
                   className="bg-[#0a0a0a] border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white/80 text-sm appearance-none"
                 >
                   <option value="">Bitte wählen...</option>
-                  <option>Unterhaltsreinigung</option>
-                  <option>Glas- & Fassadenreinigung</option>
+                  <option>Containerreinigung</option>
+                  <option>Baugrobreinigung</option>
+                  <option>Baubegleitende Reinigung</option>
+                  <option>Bauendreinigung</option>
                   <option>Grundreinigung</option>
-                  <option>Sonderreinigung</option>
-                  <option>Treppenhausreinigung</option>
+                  <option>Unterhaltsreinigung</option>
+                  <option>Teppich- & Bodenbelagsreinigung</option>
                   <option>Fassadenreinigung</option>
+                  <option>Glasreinigung</option>
+                  <option>Rahmenreinigung</option>
+                  <option>Kleine Abbrucharbeiten</option>
+                  <option>Winterdienst</option>
                   <option>Sonstiges</option>
                 </select>
               </div>

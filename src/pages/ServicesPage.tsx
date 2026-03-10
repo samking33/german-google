@@ -146,7 +146,7 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 className="font-serif text-4xl md:text-6xl font-black text-white mb-8"
               >
-                Bereit für einen <span className="text-brand-teal italic">maßlosen Glanz?</span>
+                Bereit für einen <span className="text-brand-teal italic">makellosen Glanz?</span>
               </motion.h2>
               <Link
                 to="/kontakt"

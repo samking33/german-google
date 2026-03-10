@@ -21,16 +21,16 @@ function Footer() {
             <div className="mb-6">
               <img src={LOGO} alt="Aktas Gebäudereinigung Logo" className="h-16 w-auto max-w-[260px] object-contain" />
             </div>
-            <p className="text-white/30 text-sm font-light leading-relaxed max-w-sm mb-6">
+            <p className="text-white/85 text-base font-light leading-relaxed max-w-sm mb-6">
               Professionelle Gebäudereinigung seit 2001. Zuverlässig, diskret und makellos –
               für Unternehmen, Gewerbe und Wohnanlagen in ganz Deutschland.
             </p>
-            <p className="text-white/20 text-xs font-mono">{CONTACT.website}</p>
+            <p className="text-white/80 text-xs font-mono">{CONTACT.website}</p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/25 mb-6">Navigation</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-white mb-6">Navigation</p>
             <div className="flex flex-col gap-3">
               {[
                 { label: "Start", href: "/" },
@@ -41,7 +41,7 @@ function Footer() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-white/40 text-sm font-light hover:text-brand-teal transition-colors"
+                  className="text-white text-sm font-light hover:text-brand-teal transition-colors"
                 >
                   {item.label}
                 </a>
@@ -51,43 +51,51 @@ function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/25 mb-6">Kontakt</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-white mb-6">Kontakt</p>
             <div className="flex flex-col gap-3">
-              <a href={`tel:${CONTACT.phone}`} className="text-white/40 text-sm font-light hover:text-brand-teal transition-colors">
-                {CONTACT.phone}
+              <a href={`tel:${CONTACT.phone}`} className="text-white text-sm font-light hover:text-brand-teal transition-colors">
+                Telefon: {CONTACT.phone}
               </a>
-              <a href={`mailto:${CONTACT.email}`} className="text-white/40 text-sm font-light hover:text-brand-teal transition-colors">
-                {CONTACT.email}
+              <a href={`mailto:${CONTACT.email}`} className="text-white text-sm font-light hover:text-brand-teal transition-colors">
+                E-Mail: {CONTACT.email}
               </a>
-              <p className="text-white/30 text-sm font-light">{CONTACT.address}</p>
-              <p className="text-white/30 text-sm font-light">{CONTACT.city}</p>
+              <p className="text-white/85 text-sm font-light">Öffnungszeiten: Montag – Freitag, 08:00 – 14:00</p>
+              <p className="text-white/85 text-sm font-light">{CONTACT.address}</p>
+              <p className="text-white/85 text-sm font-light">{CONTACT.city}</p>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
-          <p className="text-white/20 text-xs font-light">
+          <p className="text-white/80 text-xs font-light">
             © 2024 Aktas Gebäudereinigung GmbH — Geschäftsführer: {CONTACT.ceo}
           </p>
           <div className="flex items-center gap-8">
-            <a href="#" className="text-white/20 text-xs hover:text-white/40 transition-colors">Impressum</a>
-            <a href="#" className="text-white/20 text-xs hover:text-white/40 transition-colors">Datenschutz</a>
-            <a href="#" className="text-white/20 text-xs hover:text-white/40 transition-colors">AGB</a>
+            <a href="#impressum" className="text-white text-xs hover:text-brand-teal transition-colors">Impressum</a>
+            <a href="#" className="text-white text-xs hover:text-brand-teal transition-colors">Datenschutz</a>
+            <a href="#" className="text-white text-xs hover:text-brand-teal transition-colors">AGB</a>
           </div>
         </div>
 
-        {/* Big wordmark */}
-        <div className="mt-12 overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-[15vw] font-serif font-black italic text-white/[0.025] leading-none select-none whitespace-nowrap text-center"
-          >
-            AKTAS REINIGUNG
-          </motion.div>
+        {/* Impressum */}
+        <div id="impressum" className="mt-10 bg-white text-black rounded-sm p-8 border border-black/10">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold text-black/60 mb-4">Impressum</p>
+          <div className="text-sm leading-relaxed text-black/90">
+            <p>Aktas Gebäudereinigung GmbH</p>
+            <p>Friedrich-Ebert-Str. 47</p>
+            <p>61118 Bad Vilbel</p>
+            <p>Telefon: 06101 / 98 611 63</p>
+            <p>Fax: 06101 / 98 611 65</p>
+            <p>E-Mail: info@m-aktas.de</p>
+            <p>Geschäftsführer: Mithat Aktas</p>
+            <p>Amtsgericht Frankfurt HRB 96331</p>
+            <p>Finanzamt Gießen</p>
+            <p>St.-Nr. 020 228 13165</p>
+          </div>
         </div>
+
+        
       </div>
     </footer>
   );
