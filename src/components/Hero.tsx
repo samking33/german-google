@@ -147,9 +147,9 @@ export default function Hero() {
           className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10"
         >
           <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light max-w-lg">
-            Professionelle Gebäudereinigung für Unternehmen, Gewerbe und Wohnanlagen.
+            Wir bieten professionelle Gebäudereinigung für Unternehmen, Gewerbe und Wohnanlagen.
             <br className="hidden md:block" />
-            <span className="text-[#69e6db] font-medium">Zuverlässig. Diskret. Makellos.</span> Seit über 23 Jahren.
+            <span className="text-[#69e6db] font-medium">Wir arbeiten zuverlässig, diskret und makellos.</span> Seit über 23 Jahren.
           </p>
 
           <div className="flex items-center gap-6">

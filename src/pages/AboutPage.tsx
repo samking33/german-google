@@ -10,7 +10,7 @@ function AboutHero() {
     const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
     return (
-        <div ref={ref} className="relative h-[60vh] overflow-hidden bg-brand-dark flex items-end pb-16">
+        <div ref={ref} className="relative min-h-[60vh] overflow-hidden bg-brand-dark flex items-end pb-14">
             <motion.div style={{ y }} className="absolute inset-0">
                 <img src={IMAGES.teamAbstract} alt="Über uns" className="w-full h-full object-cover opacity-40" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-[#0a0a0a]" />
@@ -25,16 +25,18 @@ function AboutHero() {
                     <div className="w-10 h-[1px] bg-brand-teal" />
                     <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">Unternehmen</span>
                 </motion.div>
-                <div className="overflow-hidden">
-                    <motion.h1
-                        initial={{ y: "100%" }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-6xl md:text-8xl font-serif font-black leading-[0.88] text-white tracking-tight"
-                    >
-                        ÜBER<br />
-                        <span className="italic font-normal text-white/30">AKTAS.</span>
-                    </motion.h1>
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-end">
+                    <div className="overflow-hidden">
+                        <motion.h1
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-5xl md:text-7xl lg:text-8xl font-serif font-black leading-[0.9] text-white tracking-tight"
+                        >
+                            ÜBER AKTAS<br />
+                            GEBÄUDEREINIGUNG.
+                        </motion.h1>
+                    </div>
                 </div>
             </motion.div>
         </div>
@@ -50,8 +52,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="bg-brand-dark"
         >
-            <AboutHero />
-            <About />
+      <About variant="detail" />
         </motion.div>
     );
 }

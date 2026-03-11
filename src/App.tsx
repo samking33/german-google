@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navbar from "./components/Navbar";
@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
+import LegalPage from "./pages/LegalPage";
 import { CONTACT, LOGO } from "./constants";
 
 /* ── SCROLL PROGRESS – unused; App uses inline version below ── */
@@ -22,8 +23,8 @@ function Footer() {
               <img src={LOGO} alt="Aktas Gebäudereinigung Logo" className="h-16 w-auto max-w-[260px] object-contain" />
             </div>
             <p className="text-white/85 text-base font-light leading-relaxed max-w-sm mb-6">
-              Professionelle Gebäudereinigung seit 2001. Zuverlässig, diskret und makellos –
-              für Unternehmen, Gewerbe und Wohnanlagen in ganz Deutschland.
+              Wir bieten professionelle Gebäudereinigung seit 2001. Wir arbeiten zuverlässig, diskret
+              und makellos – für Unternehmen, Gewerbe und Wohnanlagen in ganz Deutschland.
             </p>
             <p className="text-white/80 text-xs font-mono">{CONTACT.website}</p>
           </div>
@@ -33,18 +34,18 @@ function Footer() {
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-white mb-6">Navigation</p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Start", href: "/" },
-                { label: "Leistungen", href: "/leistungen" },
-                { label: "Über uns", href: "/ueber-uns" },
-                { label: "Kontakt", href: "/kontakt" },
+                { label: "Start", path: "/" },
+                { label: "Leistungen", path: "/leistungen" },
+                { label: "Über uns", path: "/ueber-uns" },
+                { label: "Kontakt", path: "/kontakt" },
               ].map(item => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.path}
                   className="text-white text-sm font-light hover:text-brand-teal transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -70,30 +71,11 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
           <p className="text-white/85 text-xs font-light">© 2026 Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-8">
-            <a href="#impressum" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Impressum</a>
-            <a href="#" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Datenschutz</a>
-            <a href="#" className="text-white/90 text-xs hover:text-brand-teal transition-colors">AGB</a>
+            <Link to="/impressum" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Impressum</Link>
+            <Link to="/impressum#datenschutz" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Datenschutz</Link>
+            <Link to="/impressum#agb" className="text-white/90 text-xs hover:text-brand-teal transition-colors">AGB</Link>
           </div>
         </div>
-
-        {/* Impressum */}
-        <div id="impressum" className="mt-10 bg-[#f7f7f2] text-black rounded-sm p-8 border border-black/20">
-          <p className="text-xs uppercase tracking-[0.3em] font-bold text-black mb-4">Impressum</p>
-          <div className="text-sm leading-relaxed text-black">
-            <p>Aktas Gebäudereinigung GmbH</p>
-            <p>Friedrich-Ebert-Str. 47</p>
-            <p>61118 Bad Vilbel</p>
-            <p>Telefon: 06101 / 98 611 63</p>
-            <p>Fax: 06101 / 98 611 65</p>
-            <p>E-Mail: info@m-aktas.de</p>
-            <p>Geschäftsführer: Mithat Aktas</p>
-            <p>Amtsgericht Frankfurt HRB 96331</p>
-            <p>Finanzamt Gießen</p>
-            <p>St.-Nr. 020 228 13165</p>
-          </div>
-        </div>
-
-        
       </div>
     </footer>
   );
@@ -110,6 +92,7 @@ function AnimatedRoutes() {
           <Route path="/leistungen" element={<ServicesPage />} />
           <Route path="/ueber-uns" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="/impressum" element={<LegalPage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

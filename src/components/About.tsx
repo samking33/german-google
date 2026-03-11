@@ -1,7 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { ArrowUpRight, Star } from "lucide-react";
-import { Link } from "react-router-dom";
 import { STATS, IMAGES, PROCESS } from "../constants";
 
 function CountUp({ value, suffix }: { value: string; suffix: string }) {
@@ -12,7 +10,7 @@ function CountUp({ value, suffix }: { value: string; suffix: string }) {
   );
 }
 
-export default function About() {
+export default function About({ variant = "detail" }: { variant?: "home" | "detail" }) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -21,6 +19,7 @@ export default function About() {
 
   const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
   const imgY2 = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
+  const sectionLabel = variant === "home" ? "Über Aktas" : "Unternehmen";
 
   return (
     <section ref={sectionRef} id="ueber-uns" className="relative bg-[#0a0a0a] text-white py-32 overflow-hidden">
@@ -32,9 +31,7 @@ export default function About() {
       />
 
       <div className="max-w-[1440px] mx-auto px-8">
-
-        {/* ── SECTION HEADER ── */}
-        <div className="flex flex-col md:flex-row items-start justify-between mb-20 gap-8">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-14">
           <div>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -43,7 +40,7 @@ export default function About() {
               className="flex items-center gap-4 mb-6"
             >
               <div className="w-10 h-[1px] bg-brand-teal" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">Über Aktas</span>
+              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">{sectionLabel}</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -53,99 +50,49 @@ export default function About() {
               className="text-6xl md:text-7xl lg:text-8xl font-serif font-black leading-[0.9] tracking-tight"
             >
               ÜBER<br />
-              <span className="italic font-normal text-white/30">AKTAS</span>{" "}
+              <span className="italic font-normal text-white/25">AKTAS</span>{" "}
               <span className="text-brand-teal">GEBÄUDEREINIGUNG.</span>
             </motion.h2>
           </div>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="max-w-md text-white/50 leading-relaxed font-light pt-4 md:pt-12 text-lg"
+            className="max-w-md text-white/50 leading-relaxed font-light text-lg pt-2"
           >
-            Gegründet im Jahr 2001 und seit 2013 als GmbH geführt, steht die Aktas
-            Gebäudereinigung für Qualität, Zuverlässigkeit und transparente Abläufe. Als
-            Dienstleistungsbetrieb mit bundesweitem Einsatzgebiet arbeiten wir wirtschaftlich,
-            strukturiert und kundenorientiert.
+            Wir wurden 2001 gegründet und führen das Unternehmen seit 2013 als GmbH. Wir stehen
+            für Qualität, Zuverlässigkeit und transparente Abläufe. Als Dienstleistungsbetrieb
+            mit bundesweitem Einsatzgebiet arbeiten wir wirtschaftlich, strukturiert und
+            kundenorientiert.
           </motion.p>
         </div>
 
         {/* ── MAIN TWO-COL ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          {/* Left: Stacked images */}
-          <div className="relative h-[70vh] lg:h-auto min-h-[500px]">
-            {/* Main portrait */}
-            <motion.div
-              style={{ y: imgY }}
-              className="absolute inset-0 lg:relative rounded-sm overflow-hidden h-full"
-            >
-              <img
-                src={IMAGES.aboutPortrait}
-                alt="Aktas Gebäudereinigung"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-6 mb-10">
+          <motion.div
+            style={{ y: imgY }}
+            className="relative overflow-hidden rounded-sm h-[420px] lg:h-[520px] img-zoom"
+          >
+            <img
+              src={IMAGES.aboutPortrait}
+              alt="Aktas Gebäudereinigung"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+          </motion.div>
 
-            {/* Floating badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="absolute bottom-6 left-6 z-10 bg-brand-teal px-6 py-4"
-            >
-              <div className="flex items-center gap-3">
-                <Star size={14} className="text-brand-dark" fill="currentColor" />
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-brand-dark">Seit 2001</p>
-                  <p className="font-serif text-2xl font-black text-brand-dark leading-none">23+ Jahre</p>
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-brand-dark">Erfahrung</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right: Workspace + text */}
-          <div className="flex flex-col gap-6">
-            <motion.div
-              style={{ y: imgY2 }}
-              className="relative overflow-hidden rounded-sm h-64 img-zoom"
-            >
-              <img
-                src={IMAGES.statementWorkspace}
-                alt="Professionelle Reinigung"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-brand-blue/20" />
-            </motion.div>
-
-            <div className="bg-white/5 backdrop-blur-sm border border-white/8 p-10 rounded-sm flex-1 flex flex-col justify-between">
-              <div className="flex flex-col gap-6 mb-10">
-                <p className="text-white/70 leading-relaxed text-lg font-light">
-                  Mit einem stetig wachsenden Kundenstamm und rund 70 Mitarbeitenden bietet die
-                  Aktas Gebäudereinigung professionelle Leistungen für Gewerbe-, Bau- und
-                  Bestandsobjekte. Jede Ausführung erfolgt nachvollziehbar dokumentiert und exakt
-                  auf den Bedarf des Objekts abgestimmt.
-                </p>
-                <p className="text-white/50 leading-relaxed font-light">
-                  Unser wichtigstes Ziel ist Kundenzufriedenheit als Grundlage langfristiger
-                  Partnerschaften. Dafür setzen wir auf geschultes Personal, flexible Einsatzzeiten
-                  und eine verlässliche Umsetzung: Wir sind erst zufrieden, wenn unsere Kunden
-                  zufrieden sind.
-                </p>
-              </div>
-              <Link
-                to="/kontakt"
-                className="group inline-flex items-center gap-3 border border-white/20 px-6 py-4 self-start hover:border-brand-teal hover:text-brand-teal transition-all duration-300"
-              >
-                <span className="text-[12px] uppercase tracking-[0.2em] font-bold">Kontakt aufnehmen</span>
-                <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform" />
-              </Link>
-            </div>
-          </div>
+          <motion.div
+            style={{ y: imgY2 }}
+            className="relative overflow-hidden rounded-sm h-64 lg:h-[320px] img-zoom"
+          >
+            <img
+              src={IMAGES.statementWorkspace}
+              alt="Professionelle Reinigung"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-brand-blue/10" />
+          </motion.div>
         </div>
 
         {/* ── STATS GRID ── */}
@@ -173,7 +120,16 @@ export default function About() {
         </motion.div>
 
         {/* ── PROCESS SECTION ── */}
-        <div className="mt-32">
+        <div className="mt-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4 mb-10"
+          >
+            <div className="w-10 h-[1px] bg-brand-teal" />
+            <span className="text-[10px] uppercase tracking-[0.35em] text-brand-teal font-bold">Über uns</span>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

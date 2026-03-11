@@ -46,8 +46,8 @@ function ServiceHero() {
           transition={{ delay: 0.5 }}
           className="text-white/50 text-lg font-light mt-8 max-w-xl"
         >
-          Von der täglichen Unterhaltsreinigung bis zu anspruchsvollen Spezialprojekten –
-          maßgeschneiderte Lösungen für jeden Bedarf.
+          Wir übernehmen die tägliche Unterhaltsreinigung bis hin zu anspruchsvollen Spezialprojekten
+          und liefern maßgeschneiderte Lösungen für jeden Bedarf.
         </motion.p>
       </motion.div>
     </div>

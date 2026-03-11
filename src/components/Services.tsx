@@ -51,7 +51,7 @@ export default function Services() {
             </div>
             <p className="text-black/50 text-sm leading-relaxed font-light">
               Wir bieten ein breites Spektrum an Reinigungsdienstleistungen,
-              maßgeschneidert auf Ihren Bedarf.
+              maßgeschneidert auf den Bedarf.
             </p>
           </motion.div>
         </div>

@@ -36,7 +36,7 @@ export default function Contact() {
 
   const contactItems = [
     { icon: Phone, label: "Telefon", value: CONTACT.phone, sub: CONTACT.hours, href: `tel:${CONTACT.phone}` },
-    { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Antwort innerhalb von 24 Stunden", href: `mailto:${CONTACT.email}` },
+    { icon: Mail, label: "E-Mail", value: CONTACT.email, sub: "Wir antworten innerhalb von 24 Stunden", href: `mailto:${CONTACT.email}` },
     { icon: MapPin, label: "Adresse", value: CONTACT.address, sub: CONTACT.city, href: companyMapLink },
   ];
 
@@ -201,7 +201,7 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={e => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Wie können wir Ihnen helfen? Beschreiben Sie Ihr Objekt und Ihre Anforderungen..."
+                  placeholder="Wie können wir helfen? Objekt und Anforderungen kurz beschreiben..."
                   className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm resize-none"
                 />
               </div>

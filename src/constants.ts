@@ -43,6 +43,7 @@ export const IMAGES = {
   contactTexture: "/images/Contact texture image.jpg",
 
   footerAtmosphere: "/images/footer-atmosphere.png",
+  legalHero: "/images/legal.jpg",
 };
 
 export const LOGO = germanLogo;
@@ -75,7 +76,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir reinigen Abfall- und Lagercontainer gründlich, desinfizierend und termingerecht für einen sauberen Betrieb.",
     longDescription:
-      "Container sind täglich hoher Belastung ausgesetzt und benötigen regelmäßige Pflege. Unsere Containerreinigung entfernt Rückstände, Gerüche und Keime zuverlässig. So bleiben Ihre Flächen hygienisch, sicher und repräsentativ.",
+      "Wir wissen, dass Container täglich hoher Belastung ausgesetzt sind und regelmäßige Pflege brauchen. Wir entfernen Rückstände, Gerüche und Keime zuverlässig. So bleiben die Flächen hygienisch, sicher und repräsentativ.",
     features: [
       "Innen- und Außenreinigung",
       "Desinfektion",
@@ -98,7 +99,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir entfernen Grobschmutz, Verpackungen und Baumaterialreste für sichere und effiziente Bauabläufe.",
     longDescription:
-      "Während der Bauphase entstehen laufend Schmutz und Rückstände. Mit der Baugrobreinigung schaffen wir klare Arbeitsbereiche und reduzieren Unfallrisiken. Dadurch arbeiten alle Gewerke strukturierter und schneller.",
+      "Wir entfernen während der Bauphase laufend Schmutz und Rückstände. Mit der Baugrobreinigung schaffen wir klare Arbeitsbereiche und reduzieren Unfallrisiken. Dadurch arbeiten alle Gewerke strukturierter und schneller.",
     features: [
       "Entfernung von Grobschmutz",
       "Laufwege freihalten",
@@ -121,7 +122,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Mit regelmäßigen Reinigungseinsätzen während der Bauzeit halten wir Flächen nutzbar und Abläufe stabil.",
     longDescription:
-      "Die baubegleitende Reinigung sorgt dafür, dass Ihr Objekt während der gesamten Bauzeit in einem kontrollierten Zustand bleibt. Wir stimmen Taktung und Umfang eng auf den Baufortschritt ab. So wird die Übergabe deutlich effizienter vorbereitet.",
+      "Wir sorgen mit der baubegleitenden Reinigung dafür, dass das Objekt während der gesamten Bauzeit in einem kontrollierten Zustand bleibt. Wir stimmen Taktung und Umfang eng auf den Baufortschritt ab. So wird die Übergabe deutlich effizienter vorbereitet.",
     features: [
       "Intervallreinigung",
       "Abstimmung mit Bauleitung",
@@ -144,7 +145,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir liefern eine gründliche Endreinigung für die bezugs- und übergabefertige Immobilie.",
     longDescription:
-      "Nach Abschluss aller Bauarbeiten bereiten wir Ihr Objekt professionell für die Übergabe vor. Feinstaub, Folienreste und Bauschmutz werden systematisch entfernt. Das Ergebnis ist ein sauberer, hochwertiger Gesamteindruck.",
+      "Nach Abschluss aller Bauarbeiten bereiten wir das Objekt professionell für die Übergabe vor. Wir entfernen Feinstaub, Folienreste und Bauschmutz systematisch. So entsteht ein sauberer, hochwertiger Gesamteindruck.",
     features: [
       "Feinreinigung aller Flächen",
       "Entfernung von Schutzfolien",
@@ -165,9 +166,9 @@ export const SERVICES: ServiceItem[] = [
     title: "Grundreinigung",
     subtitle: "Tiefenreinigung. Neustart.",
     description:
-      "Intensive Tiefenreinigung für Böden, Oberflächen und schwer zugängliche Bereiche, wenn Standardreinigung nicht ausreicht.",
+      "Wir führen eine intensive Tiefenreinigung für Böden, Oberflächen und schwer zugängliche Bereiche durch, wenn Standardreinigung nicht ausreicht.",
     longDescription:
-      "Manchmal braucht es mehr als Routine. Unsere Grundreinigung entfernt hartnäckige Verschmutzungen, Beläge und alte Pflegemittelschichten maschinell und manuell. So stellen wir die volle Hygiene und Werterhaltung Ihrer Flächen wieder her.",
+      "Manchmal braucht es mehr als Routine. Wir entfernen hartnäckige Verschmutzungen, Beläge und alte Pflegemittelschichten maschinell und manuell. So stellen wir die volle Hygiene und Werterhaltung der Flächen wieder her.",
     features: [
       "Steinböden",
       "PVC & Linoleum",
@@ -188,9 +189,9 @@ export const SERVICES: ServiceItem[] = [
     title: "Unterhaltsreinigung",
     subtitle: "Tägliche Pflege. Dauerhafter Glanz.",
     description:
-      "Regelmäßige, zuverlässige Reinigung Ihrer Objekte für ein dauerhaft gepflegtes und professionelles Erscheinungsbild.",
+      "Wir reinigen Objekte regelmäßig und zuverlässig für ein dauerhaft gepflegtes und professionelles Erscheinungsbild.",
     longDescription:
-      "Sauberkeit ist das Fundament eines professionellen Auftritts. Unsere Unterhaltsreinigung erfolgt täglich oder im Wunschintervall und wird exakt auf Ihre Nutzung abgestimmt. So bleiben Ihre Räume dauerhaft einladend und hygienisch.",
+      "Für uns ist Sauberkeit das Fundament eines professionellen Auftritts. Wir reinigen täglich oder im Wunschintervall und stimmen alles exakt auf die Nutzung ab. So bleiben die Räume dauerhaft einladend und hygienisch.",
     features: [
       "Büros & Kanzleien",
       "Praxen & Kliniken",
@@ -213,7 +214,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir reinigen textile und elastische Bodenbeläge materialgerecht und gründlich für eine lange Nutzungsdauer.",
     longDescription:
-      "Bodenbeläge prägen den ersten Eindruck Ihrer Räume. Mit abgestimmten Reinigungsverfahren entfernen wir tief sitzenden Schmutz und erhalten die Materialqualität. Das verbessert Hygiene, Optik und Wertigkeit.",
+      "Wir wissen, dass Bodenbeläge den ersten Eindruck der Räume prägen. Mit abgestimmten Reinigungsverfahren entfernen wir tief sitzenden Schmutz und erhalten die Materialqualität. Das verbessert Hygiene, Optik und Wertigkeit.",
     features: [
       "Teppichböden",
       "Polsternahe Randzonen",
@@ -234,9 +235,9 @@ export const SERVICES: ServiceItem[] = [
     title: "Fassadenreinigung",
     subtitle: "Außen glänzend. Werterhaltend.",
     description:
-      "Wir reinigen Fassadenmaterialien schonend und gründlich, um Optik und Substanz Ihrer Immobilie zu schützen.",
+      "Wir reinigen Fassadenmaterialien schonend und gründlich, um Optik und Substanz der Immobilie zu schützen.",
     longDescription:
-      "Witterung und Umwelteinflüsse belasten jede Fassade. Unsere Fassadenreinigung entfernt Rückstände materialgerecht und steigert den Gesamteindruck Ihres Objekts. Gleichzeitig unterstützen wir den langfristigen Werterhalt.",
+      "Wir sehen täglich, wie Witterung und Umwelteinflüsse jede Fassade belasten. Wir entfernen Rückstände materialgerecht und steigern den Gesamteindruck des Objekts. Gleichzeitig unterstützen wir den langfristigen Werterhalt.",
     features: [
       "Klinker & Putz",
       "Naturstein",
@@ -259,7 +260,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir reinigen Glasflächen professionell für maximale Transparenz und einen überzeugenden ersten Eindruck.",
     longDescription:
-      "Klare Glasflächen unterstreichen die Qualität eines Gebäudes. Unsere Glasreinigung erfolgt präzise, streifenfrei und auf Ihre Objektstruktur abgestimmt. Innen- und Außenflächen werden zuverlässig gepflegt.",
+      "Wir wissen, dass klare Glasflächen die Qualität eines Gebäudes unterstreichen. Wir reinigen präzise, streifenfrei und auf die Objektstruktur abgestimmt. Innen- und Außenflächen pflegen wir zuverlässig.",
     features: [
       "Fensterflächen",
       "Schaufenster",
@@ -282,7 +283,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir reinigen Fenster- und Türelemente inklusive Rahmen, Falzen und Beschlägen gründlich und materialgerecht.",
     longDescription:
-      "Saubere Rahmen sind entscheidend für ein vollständig gepflegtes Erscheinungsbild. Unsere Rahmenreinigung entfernt Schmutz in Kanten und Fugen präzise und schonend. Das verbessert Optik und Funktion dauerhaft.",
+      "Wir wissen, dass saubere Rahmen entscheidend für ein vollständig gepflegtes Erscheinungsbild sind. Wir entfernen Schmutz in Kanten und Fugen präzise und schonend. Das verbessert Optik und Funktion dauerhaft.",
     features: [
       "Fensterrahmen",
       "Türrahmen",
@@ -305,7 +306,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir führen kleine Rückbau- und Abbrucharbeiten sicher, strukturiert und sauber durch.",
     longDescription:
-      "Für Umbauten sind oft vorbereitende Rückbauarbeiten erforderlich. Unser Team entfernt Bauteile kontrolliert und achtet auf sichere Arbeitsbereiche. Anschließend hinterlassen wir die Fläche bereit für den nächsten Schritt.",
+      "Für Umbauten sind oft vorbereitende Rückbauarbeiten erforderlich. Wir entfernen Bauteile kontrolliert und achten auf sichere Arbeitsbereiche. Anschließend hinterlassen wir die Fläche bereit für den nächsten Schritt.",
     features: [
       "Selektiver Rückbau",
       "Sichere Arbeitsweise",
@@ -328,7 +329,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Wir sichern Wege, Zufahrten und Eingänge durch Räumen und Streuen im Winter zuverlässig ab.",
     longDescription:
-      "Im Winter sind schnelle Reaktionszeiten entscheidend. Unser Winterdienst sorgt für sichere Begeh- und Befahrbarkeit Ihrer Flächen bei Schnee und Glätte. Das reduziert Risiken und schafft verlässliche Verhältnisse.",
+      "Im Winter sind schnelle Reaktionszeiten entscheidend. Wir sorgen für sichere Begeh- und Befahrbarkeit der Flächen bei Schnee und Glätte. Das reduziert Risiken und schafft verlässliche Verhältnisse.",
     features: [
       "Schneeräumung",
       "Streudienst",
@@ -381,17 +382,17 @@ export const PROCESS = [
   {
     step: "01",
     title: "Kontaktaufnahme",
-    description: "Sie nehmen unverbindlich Kontakt auf. Wir melden uns innerhalb von 24 Stunden.",
+    description: "Wir nehmen Anfragen unverbindlich entgegen und melden uns innerhalb von 24 Stunden.",
   },
   {
     step: "02",
     title: "Begehung & Analyse",
-    description: "Wir besichtigen Ihr Objekt und analysieren Ihren Bedarf vor Ort.",
+    description: "Wir besichtigen das Objekt und analysieren den Bedarf vor Ort.",
   },
   {
     step: "03",
     title: "Individuelles Angebot",
-    description: "Sie erhalten ein transparentes, maßgeschneidertes Angebot.",
+    description: "Wir erstellen ein transparentes, maßgeschneidertes Angebot.",
   },
   {
     step: "04",

@@ -53,9 +53,9 @@ function StatementSection() {
 function WhyAktas() {
   const pillars = [
     { no: "01", title: "Zuverlässigkeit", desc: "Wir halten, was wir versprechen. Termingerecht. Jeden Tag." },
-    { no: "02", title: "Qualität", desc: "Höchste Standards bei Material, Methode und Mitarbeitern." },
-    { no: "03", title: "Diskretion", desc: "Respektvoller Umgang mit Ihrem Eigentum und Ihrer Privatsphäre." },
-    { no: "04", title: "Nachhaltigkeit", desc: "Umweltschonende Reinigungsmittel für Mensch und Natur." },
+    { no: "02", title: "Qualität", desc: "Wir arbeiten nach höchsten Standards bei Material, Methode und Mitarbeitenden." },
+    { no: "03", title: "Diskretion", desc: "Wir gehen respektvoll mit dem Eigentum und der Privatsphäre um." },
+    { no: "04", title: "Nachhaltigkeit", desc: "Wir nutzen umweltschonende Reinigungsmittel für Mensch und Natur." },
   ];
 
   return (
@@ -162,8 +162,8 @@ function ReferencesSection() {
           </div>
           <div className="max-w-xl text-black/60 leading-relaxed font-light text-lg">
             <p>
-              Hier finden Sie eine Auswahl unserer Kunden, die auf die
-              Leistungen von Aktas Gebäudereinigung vertrauen.
+              Hier zeigen wir eine Auswahl unserer Kunden, die uns und unseren Leistungen
+              vertrauen.
             </p>
             <p className="mt-4">
               Wir betreuen Kunden aus Gewerbe, Verwaltung und Bauprojekten
@@ -194,7 +194,7 @@ export default function Home() {
       <Services />
       <StatementSection />
       <WhyAktas />
-      <About />
+      <About variant="home" />
       <ReferencesSection />
       <Contact />
     </div>
