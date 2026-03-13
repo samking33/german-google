@@ -10,6 +10,7 @@ const navItems = [
   { name: "Über uns", path: "/ueber-uns" },
   { name: "Kontakt", path: "/kontakt" },
   { name: "Impressum", path: "/impressum" },
+  { name: "Datenschutz", path: "/datenschutz" },
 ];
 
 export default function Navbar() {

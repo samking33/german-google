@@ -172,63 +172,6 @@ export default function LegalPage() {
             </ol>
           </motion.div>
 
-          <motion.div
-            id="datenschutz"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="scroll-mt-28 bg-white border border-black/10 shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-8 md:p-10"
-          >
-            <p className="text-xs uppercase tracking-[0.3em] font-bold text-brand-teal mb-4">Datenschutz</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold">Datenschutzerklärung</h2>
-            <div className="mt-8 space-y-6 text-sm leading-relaxed text-black/85">
-              <div>
-                <p className="font-semibold text-black">1. Verantwortlicher</p>
-                <p>{CONTACT.name}</p>
-                <p>{CONTACT.address}, {CONTACT.city}</p>
-                <p>E-Mail: {CONTACT.email}</p>
-              </div>
-              <div>
-                <p className="font-semibold text-black">2. Allgemeines zur Datenverarbeitung</p>
-                <p>
-                  Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung unserer Website
-                  und zur Kommunikation mit Interessenten und Kunden erforderlich ist.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-black">3. Kontaktaufnahme</p>
-                <p>
-                  Wenn Sie uns per Kontaktformular, Telefon oder E-Mail kontaktieren, verarbeiten wir die
-                  von Ihnen übermittelten Angaben, um Ihre Anfrage zu beantworten und die Kommunikation zu
-                  dokumentieren.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-black">4. Technische Daten</p>
-                <p>
-                  Beim Besuch der Website können technisch notwendige Informationen (z. B. IP-Adresse,
-                  Zeitpunkt des Zugriffs, verwendeter Browser) verarbeitet werden, um den sicheren Betrieb
-                  der Seite zu gewährleisten.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-black">5. Speicherdauer</p>
-                <p>
-                  Wir speichern personenbezogene Daten nur so lange, wie es für die jeweiligen Zwecke
-                  erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-black">6. Ihre Rechte</p>
-                <p>
-                  Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung
-                  sowie auf Datenübertragbarkeit. Zudem können Sie eine erteilte Einwilligung jederzeit
-                  widerrufen und sich bei einer Aufsichtsbehörde beschweren.
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </motion.div>

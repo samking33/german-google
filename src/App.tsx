@@ -7,6 +7,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import LegalPage from "./pages/LegalPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
 import { CONTACT, LOGO } from "./constants";
 
 /* ── SCROLL PROGRESS – unused; App uses inline version below ── */
@@ -72,7 +73,7 @@ function Footer() {
           <p className="text-white/85 text-xs font-light">© 2026 Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-8">
             <Link to="/impressum" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Impressum</Link>
-            <Link to="/impressum#datenschutz" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Datenschutz</Link>
+            <Link to="/datenschutz" className="text-white/90 text-xs hover:text-brand-teal transition-colors">Datenschutz</Link>
             <Link to="/impressum#agb" className="text-white/90 text-xs hover:text-brand-teal transition-colors">AGB</Link>
           </div>
         </div>
@@ -93,6 +94,7 @@ function AnimatedRoutes() {
           <Route path="/ueber-uns" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/impressum" element={<LegalPage />} />
+          <Route path="/datenschutz" element={<DatenschutzPage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
