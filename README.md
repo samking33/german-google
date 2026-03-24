@@ -8,7 +8,7 @@ This project builds the frontend with Vite and serves it through an Express Node
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js 20.19.0 or newer
 
 1. Install dependencies:
    `npm install`
