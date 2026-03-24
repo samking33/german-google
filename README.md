@@ -4,7 +4,7 @@
 
 # Run and deploy your Node.js app
 
-This project now builds the frontend with Vite and serves it through an Express Node.js server.
+This project builds the frontend with Vite and serves it through an Express Node.js server.
 
 ## Run Locally
 
@@ -12,10 +12,9 @@ This project now builds the frontend with Vite and serves it through an Express 
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in `.env` to your Gemini API key
-3. Build the frontend:
+2. Build the frontend:
    `npm run build`
-4. Start the Node.js server:
+3. Start the Node.js server:
    `npm start`
-5. For frontend-only local development, run:
+4. For frontend-only local development, run:
    `npm run dev`
