@@ -7,6 +7,33 @@ import Contact from "../components/Contact";
 import { IMAGES } from "../constants";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import reweLogo from "../../client logos/Logo_REWE.svg.png";
+import interriskLogo from "../../client logos/InterRisk VIENNA INSURANCE GROUP.jpg";
+import hebergerLogo from "../../client logos/HEBERGER.webp";
+
+const CLIENT_LOGOS = [
+  {
+    id: "01",
+    name: "REWE",
+    logo: reweLogo,
+    alt: "REWE Logo",
+    logoClassName: "max-h-14",
+  },
+  {
+    id: "02",
+    name: "InterRisk Vienna Insurance Group",
+    logo: interriskLogo,
+    alt: "InterRisk Vienna Insurance Group Logo",
+    logoClassName: "max-h-16",
+  },
+  {
+    id: "03",
+    name: "HEBERGER",
+    logo: hebergerLogo,
+    alt: "HEBERGER Logo",
+    logoClassName: "max-h-14",
+  },
+] as const;
 
 /* ── STATEMENT SECTION ── */
 function StatementSection() {
@@ -147,8 +174,12 @@ function WhyAktas() {
 /* ── REFERENCES SECTION ── */
 function ReferencesSection() {
   return (
-    <section className="bg-brand-warm py-28 px-8">
-      <div className="max-w-[1440px] mx-auto">
+    <section className="relative overflow-hidden bg-brand-warm py-28 px-8">
+      <div className="absolute inset-0 grid-lines opacity-35" />
+      <div className="absolute left-0 top-10 h-48 w-48 rounded-full bg-brand-teal/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
+
+      <div className="relative max-w-[1440px] mx-auto">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16">
           <div>
             <div className="flex items-center gap-4 mb-6">
@@ -172,15 +203,55 @@ function ReferencesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="h-24 border border-black/10 bg-white/60 flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-black/35"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {CLIENT_LOGOS.map((client, index) => (
+            <motion.article
+              key={client.name}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.7, delay: index * 0.08 }}
+              className="group relative overflow-hidden rounded-[28px] border border-black/8 bg-white/85 p-6 md:p-8 shadow-[0_24px_80px_rgba(10,10,10,0.08)] backdrop-blur-sm card-lift"
             >
-              Kundenname
-            </div>
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-brand-teal to-brand-gold opacity-80" />
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-teal/10 blur-3xl transition-transform duration-500 group-hover:scale-125" />
+              <div className="absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-brand-blue/8 blur-3xl transition-transform duration-500 group-hover:scale-125" />
+
+              <div className="relative flex h-full flex-col">
+                <div className="mb-8 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-black/35">
+                  <span>Referenz {client.id}</span>
+                  <span className="h-2 w-2 rounded-full bg-brand-teal/70" />
+                </div>
+
+                <div className="flex flex-1 items-center justify-center rounded-[24px] border border-black/6 bg-brand-mid/50 px-6 py-10">
+                  <img
+                    src={client.logo}
+                    alt={client.alt}
+                    className={`w-full object-contain ${client.logoClassName} transition-transform duration-500 group-hover:scale-[1.03]`}
+                  />
+                </div>
+
+                <div className="mt-8 border-t border-black/8 pt-5">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-brand-blue/80 font-bold">
+                    {client.name}
+                  </p>
+                </div>
+              </div>
+            </motion.article>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-black/8 pt-6 md:flex-row md:items-center">
+          <p className="max-w-2xl text-sm font-light leading-relaxed text-black/55">
+            Diese Auswahl zeigt einen Teil der Unternehmen und Projektpartner, die auf unsere
+            strukturierte und termingerechte Ausführung setzen.
+          </p>
+          <Link
+            to="/kontakt"
+            className="shrink-0 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue hover:text-brand-teal transition-colors"
+          >
+            Referenzen anfragen
+          </Link>
         </div>
       </div>
     </section>
