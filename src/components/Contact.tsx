@@ -10,6 +10,15 @@ import { CONTACT, IMAGES } from "../constants";
 
 const companyCoords: [number, number] = [50.1736576, 8.7373316];
 const companyMapLink = `https://www.openstreetmap.org/?mlat=${companyCoords[0]}&mlon=${companyCoords[1]}#map=17/${companyCoords[0]}/${companyCoords[1]}`;
+const initialFormData = { name: "", email: "", phone: "", service: "", message: "" };
+const googleFormAction = "https://docs.google.com/forms/d/e/1FAIpQLSeB6jv69Id7xEoUeTmAoe3Y8X-vKkFZqpb5rQYb8OK0psA0IQ/formResponse";
+const googleFormFields = {
+  name: "entry.1806617516",
+  email: "entry.1240117734",
+  phone: "entry.1159048457",
+  service: "entry.1134001079",
+  message: "entry.247721696",
+};
 const companyMarkerIcon = L.icon({
   iconRetinaUrl: markerIcon2x,
   iconUrl: markerIcon,
@@ -25,13 +34,49 @@ export default function Contact() {
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
-  const [formData, setFormData] = useState({ name: "", email: "", service: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const updateField = (field: keyof typeof initialFormData, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+
+    if (submitState !== "idle") {
+      setSubmitState("idle");
+      setSubmitMessage("");
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+
+    setSubmitState("submitting");
+    setSubmitMessage("");
+
+    try {
+      const payload = new URLSearchParams();
+      payload.append(googleFormFields.name, formData.name);
+      payload.append(googleFormFields.email, formData.email);
+      payload.append(googleFormFields.phone, formData.phone);
+      payload.append(googleFormFields.service, formData.service);
+      payload.append(googleFormFields.message, formData.message);
+      payload.append("fvv", "1");
+      payload.append("pageHistory", "0");
+      payload.append("fbzx", `${Date.now()}`);
+
+      await fetch(googleFormAction, {
+        method: "POST",
+        mode: "no-cors",
+        body: payload,
+      });
+
+      setFormData(initialFormData);
+      setSubmitState("success");
+      setSubmitMessage("Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.");
+    } catch (error) {
+      setSubmitState("error");
+      setSubmitMessage(error instanceof Error ? error.message : "Die Anfrage konnte nicht gesendet werden.");
+    }
   };
 
   const contactItems = [
@@ -152,7 +197,8 @@ export default function Contact() {
                     required
                     type="text"
                     value={formData.name}
-                    onChange={e => setFormData({ ...formData, name: e.target.value })}
+                    onChange={e => updateField("name", e.target.value)}
+                    autoComplete="name"
                     placeholder="Ihr vollständiger Name"
                     className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
                   />
@@ -163,35 +209,52 @@ export default function Contact() {
                     required
                     type="email"
                     value={formData.email}
-                    onChange={e => setFormData({ ...formData, email: e.target.value })}
+                    onChange={e => updateField("email", e.target.value)}
+                    autoComplete="email"
                     placeholder="Ihre E-Mail-Adresse"
                     className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
                   />
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Gewünschte Leistung</label>
-                <select
-                  value={formData.service}
-                  onChange={e => setFormData({ ...formData, service: e.target.value })}
-                  className="bg-[#0a0a0a] border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white/80 text-sm appearance-none"
-                >
-                  <option value="">Bitte wählen...</option>
-                  <option>Containerreinigung</option>
-                  <option>Baugrobreinigung</option>
-                  <option>Baubegleitende Reinigung</option>
-                  <option>Bauendreinigung</option>
-                  <option>Grundreinigung</option>
-                  <option>Unterhaltsreinigung</option>
-                  <option>Teppich- & Bodenbelagsreinigung</option>
-                  <option>Fassadenreinigung</option>
-                  <option>Glasreinigung</option>
-                  <option>Rahmenreinigung</option>
-                  <option>Kleine Abbrucharbeiten</option>
-                  <option>Winterdienst</option>
-                  <option>Sonstiges</option>
-                </select>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Mobilnummer *</label>
+                  <input
+                    required
+                    type="tel"
+                    inputMode="tel"
+                    value={formData.phone}
+                    onChange={e => updateField("phone", e.target.value)}
+                    autoComplete="tel"
+                    placeholder="Ihre Mobilnummer"
+                    className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Gewünschte Leistung</label>
+                  <select
+                    value={formData.service}
+                    onChange={e => updateField("service", e.target.value)}
+                    className="bg-[#0a0a0a] border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white/80 text-sm appearance-none"
+                  >
+                    <option value="">Bitte wählen...</option>
+                    <option>Containerreinigung</option>
+                    <option>Baugrobreinigung</option>
+                    <option>Baubegleitende Reinigung</option>
+                    <option>Bauendreinigung</option>
+                    <option>Grundreinigung</option>
+                    <option>Unterhaltsreinigung</option>
+                    <option>Teppich- & Bodenbelagsreinigung</option>
+                    <option>Fassadenreinigung</option>
+                    <option>Glasreinigung</option>
+                    <option>Rahmenreinigung</option>
+                    <option>Kleine Abbrucharbeiten</option>
+                    <option>Winterdienst</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
               </div>
 
               <div className="flex flex-col gap-2">
@@ -200,7 +263,7 @@ export default function Contact() {
                   required
                   rows={5}
                   value={formData.message}
-                  onChange={e => setFormData({ ...formData, message: e.target.value })}
+                  onChange={e => updateField("message", e.target.value)}
                   placeholder="Wie können wir helfen? Objekt und Anforderungen kurz beschreiben..."
                   className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm resize-none"
                 />
@@ -210,12 +273,15 @@ export default function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`flex items-center justify-center gap-3 py-5 font-bold uppercase tracking-[0.2em] text-[12px] transition-all duration-400 ${sent
+                disabled={submitState === "submitting"}
+                className={`flex items-center justify-center gap-3 py-5 font-bold uppercase tracking-[0.2em] text-[12px] transition-all duration-400 disabled:cursor-wait disabled:opacity-80 ${submitState === "success"
                   ? "bg-brand-teal text-brand-dark"
                   : "bg-white text-brand-dark hover:bg-brand-teal"
                   }`}
               >
-                {sent ? (
+                {submitState === "submitting" ? (
+                  "Wird gesendet..."
+                ) : submitState === "success" ? (
                   "✓ Erfolgreich gesendet"
                 ) : (
                   <>
@@ -224,6 +290,15 @@ export default function Contact() {
                   </>
                 )}
               </motion.button>
+
+              {submitMessage ? (
+                <p
+                  aria-live="polite"
+                  className={`text-xs text-center leading-relaxed ${submitState === "error" ? "text-[#ff9c9c]" : "text-brand-teal"}`}
+                >
+                  {submitMessage}
+                </p>
+              ) : null}
 
               <p className="text-white/20 text-[10px] text-center leading-relaxed">
                 Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.<br />
