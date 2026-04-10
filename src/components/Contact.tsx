@@ -2,11 +2,13 @@ import { motion, useScroll, useTransform } from "motion/react";
 import React, { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Send, Clock, ArrowUpRight } from "lucide-react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
 import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { CONTACT, IMAGES } from "../constants";
+import { markContactSubmissionComplete } from "../lib/contactSubmission";
 
 const companyCoords: [number, number] = [50.1736576, 8.7373316];
 const companyMapLink = `https://www.openstreetmap.org/?mlat=${companyCoords[0]}&mlon=${companyCoords[1]}#map=17/${companyCoords[0]}/${companyCoords[1]}`;
@@ -33,6 +35,7 @@ export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialFormData);
   const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -70,9 +73,11 @@ export default function Contact() {
         body: payload,
       });
 
+      markContactSubmissionComplete();
       setFormData(initialFormData);
       setSubmitState("success");
       setSubmitMessage("Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.");
+      navigate("/kontakt/danke", { replace: true });
     } catch (error) {
       setSubmitState("error");
       setSubmitMessage(error instanceof Error ? error.message : "Die Anfrage konnte nicht gesendet werden.");

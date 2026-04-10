@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
+import ContactThankYouPage from "./pages/ContactThankYouPage";
 import AboutPage from "./pages/AboutPage";
 import LegalPage from "./pages/LegalPage";
 import DatenschutzPage from "./pages/DatenschutzPage";
@@ -93,6 +94,7 @@ function AnimatedRoutes() {
           <Route path="/leistungen" element={<ServicesPage />} />
           <Route path="/ueber-uns" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="/kontakt/danke" element={<ContactThankYouPage />} />
           <Route path="/impressum" element={<LegalPage />} />
           <Route path="/datenschutz" element={<DatenschutzPage />} />
         </Routes>
