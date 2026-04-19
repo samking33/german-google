@@ -9,6 +9,7 @@ type DataLayerEvent = Record<string, unknown> | unknown[];
 declare global {
   interface Window {
     dataLayer?: DataLayerEvent[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -32,6 +33,10 @@ export default function ContactThankYouPage() {
         enquiryDestination: "google_forms",
         enquiryThankYouPage: "/kontakt/danke",
       });
+
+      if (window.gtag) {
+        window.gtag('event', 'conversion', { send_to: 'AW-18053666744/kpxeCO3v-pscELiv1KBD' });
+      }
 
       markContactSubmissionTracked(submissionMarker.id);
     }
