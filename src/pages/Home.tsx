@@ -183,85 +183,84 @@ function WhyAktas() {
 /* ── REFERENCES SECTION ── */
 function ReferencesSection() {
   return (
-    <section className="relative overflow-hidden bg-brand-warm py-28 px-8">
-      <div className="absolute inset-0 grid-lines opacity-35" />
-      <div className="absolute left-0 top-10 h-48 w-48 rounded-full bg-brand-teal/10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#080808] py-28 px-8">
+      {/* Ambient glows */}
+      <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-brand-teal/8 blur-[100px] pointer-events-none" />
+      <div className="absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-brand-blue/8 blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-[1440px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16">
-          <div>
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-10 h-[1px] bg-brand-blue" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-brand-blue font-bold">Referenzen</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-serif font-black leading-[0.92] tracking-tight">
-              UNSERE<br />
-              <span className="italic font-normal text-black/25">KUNDEN.</span>
-            </h2>
-          </div>
-          <div className="max-w-xl text-black/60 leading-relaxed font-light text-lg">
-            <p>
-              Hier zeigen wir eine Auswahl unserer Kunden, die uns und unseren Leistungen
-              vertrauen.
-            </p>
-            <p className="mt-4">
-              Wir betreuen Kunden aus Gewerbe, Verwaltung und Bauprojekten
-              deutschlandweit.
-            </p>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-8 h-[1px] bg-brand-teal" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-brand-teal font-bold">Referenzen</span>
+            <div className="w-8 h-[1px] bg-brand-teal" />
+          </div>
+          <h2 className="text-5xl md:text-6xl font-serif font-black leading-[0.92] tracking-tight text-white">
+            UNSERE{" "}
+            <span className="italic font-normal text-white/25">KUNDEN.</span>
+          </h2>
+          <p className="mt-5 text-white/45 font-light max-w-lg mx-auto text-base leading-relaxed">
+            Unternehmen aus Gewerbe, Verwaltung und Bauprojekten, die auf unsere Qualität vertrauen.
+          </p>
+        </motion.div>
+
+        {/* Logo grid — always 2×2, centered */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {CLIENT_LOGOS.map((client, index) => (
             <motion.article
               key={client.name}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.7, delay: index * 0.08 }}
-              className="group relative overflow-hidden rounded-[28px] border border-black/8 bg-white/85 p-6 md:p-8 shadow-[0_24px_80px_rgba(10,10,10,0.08)] backdrop-blur-sm card-lift"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative flex flex-col items-center justify-center gap-6 border border-white/8 bg-white/[0.04] hover:bg-white/[0.09] hover:border-white/20 transition-all duration-500 p-8 md:p-10 cursor-default"
             >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-brand-teal to-brand-gold opacity-80" />
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-teal/10 blur-3xl transition-transform duration-500 group-hover:scale-125" />
-              <div className="absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-brand-blue/8 blur-3xl transition-transform duration-500 group-hover:scale-125" />
+              {/* Corner accent */}
+              <div className="absolute top-0 left-0 w-8 h-[2px] bg-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 h-8 w-[2px] bg-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative flex h-full flex-col">
-                <div className="mb-8 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-black/35">
-                  <span>Referenz {client.id}</span>
-                  <span className="h-2 w-2 rounded-full bg-brand-teal/70" />
-                </div>
-
-                <div className="flex flex-1 items-center justify-center rounded-[24px] border border-black/6 bg-brand-mid/50 px-6 py-10">
-                  <img
-                    src={client.logo}
-                    alt={client.alt}
-                    className={`w-full object-contain ${client.logoClassName} transition-transform duration-500 group-hover:scale-[1.03]`}
-                  />
-                </div>
-
-                <div className="mt-8 border-t border-black/8 pt-5">
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-brand-blue/80 font-bold">
-                    {client.name}
-                  </p>
-                </div>
+              <div className="flex items-center justify-center w-full h-20">
+                <img
+                  src={client.logo}
+                  alt={client.alt}
+                  className={`w-full object-contain ${client.logoClassName} transition-all duration-500 group-hover:scale-105 brightness-0 invert opacity-60 group-hover:opacity-100`}
+                />
               </div>
+
+              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/30 group-hover:text-brand-teal transition-colors duration-300">
+                {client.name}
+              </p>
             </motion.article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-black/8 pt-6 md:flex-row md:items-center">
-          <p className="max-w-2xl text-sm font-light leading-relaxed text-black/55">
-            Diese Auswahl zeigt einen Teil der Unternehmen und Projektpartner, die auf unsere
-            strukturierte und termingerechte Ausführung setzen.
+        {/* Bottom CTA strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-14 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/8 pt-8"
+        >
+          <p className="text-white/35 text-sm font-light text-center md:text-left">
+            500+ betreute Objekte · bundesweit · seit 2013
           </p>
           <Link
             to="/kontakt"
-            className="shrink-0 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue hover:text-brand-teal transition-colors"
+            className="group inline-flex items-center gap-3 border border-white/15 text-white/70 px-7 py-3 text-[11px] font-bold uppercase tracking-[0.22em] hover:border-brand-teal hover:text-brand-teal transition-all duration-300"
           >
             Referenzen anfragen
+            <ArrowUpRight size={13} className="group-hover:rotate-45 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
