@@ -139,17 +139,17 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-6 group cursor-pointer border border-white/5 p-6 hover:border-brand-teal/30 hover:bg-white/5 transition-all duration-400"
+                className="flex items-center gap-6 group cursor-pointer border border-white/20 bg-white/5 p-6 hover:border-brand-teal hover:bg-white/10 transition-all duration-400"
               >
-                <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-400 flex-shrink-0">
-                  <item.icon size={18} className="group-hover:text-brand-dark transition-colors" />
+                <div className="w-12 h-12 border border-white/30 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-400 flex-shrink-0">
+                  <item.icon size={18} className="text-white group-hover:text-brand-dark transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30 mb-1">{item.label}</p>
-                  <p className="text-white font-medium group-hover:text-brand-teal transition-colors truncate">{item.value}</p>
-                  <p className="text-white/30 text-xs mt-0.5">{item.sub}</p>
+                  <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-teal mb-1">{item.label}</p>
+                  <p className="text-white font-semibold text-base group-hover:text-brand-teal transition-colors truncate">{item.value}</p>
+                  <p className="text-white/60 text-xs mt-0.5">{item.sub}</p>
                 </div>
-                <ArrowUpRight size={16} className="text-white/20 group-hover:text-brand-teal transition-colors flex-shrink-0" />
+                <ArrowUpRight size={16} className="text-white/40 group-hover:text-brand-teal transition-colors flex-shrink-0" />
               </motion.a>
             ))}
 
@@ -158,12 +158,12 @@ export default function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 p-6 bg-brand-teal/10 border border-brand-teal/20"
+              className="flex items-center gap-4 p-6 bg-brand-teal/20 border border-brand-teal/50"
             >
               <Clock size={18} className="text-brand-teal flex-shrink-0" />
               <div>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-teal mb-1">Öffnungszeiten</p>
-                <div className="text-white/60 text-sm font-light">
+                <div className="text-white text-sm font-medium">
                   <p>{CONTACT.hours}</p>
                 </div>
               </div>
@@ -191,13 +191,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
-            className="bg-white/[0.04] border border-white/8 p-10 backdrop-blur-sm"
+            className="bg-white/10 border border-white/25 p-10 backdrop-blur-sm"
           >
             <h3 className="font-serif text-2xl mb-8 text-white">Kostenlose Anfrage</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-7">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Name *</label>
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/75">Name *</label>
                   <input
                     required
                     type="text"
@@ -205,11 +205,11 @@ export default function Contact() {
                     onChange={e => updateField("name", e.target.value)}
                     autoComplete="name"
                     placeholder="Ihr vollständiger Name"
-                    className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
+                    className="bg-white/5 border border-white/25 px-4 py-3 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-colors text-white placeholder:text-white/50 text-sm"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">E-Mail *</label>
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/75">E-Mail *</label>
                   <input
                     required
                     type="email"
@@ -217,14 +217,14 @@ export default function Contact() {
                     onChange={e => updateField("email", e.target.value)}
                     autoComplete="email"
                     placeholder="Ihre E-Mail-Adresse"
-                    className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
+                    className="bg-white/5 border border-white/25 px-4 py-3 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-colors text-white placeholder:text-white/50 text-sm"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Mobilnummer *</label>
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/75">Mobilnummer *</label>
                   <input
                     required
                     type="tel"
@@ -233,16 +233,16 @@ export default function Contact() {
                     onChange={e => updateField("phone", e.target.value)}
                     autoComplete="tel"
                     placeholder="Ihre Mobilnummer"
-                    className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm"
+                    className="bg-white/5 border border-white/25 px-4 py-3 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-colors text-white placeholder:text-white/50 text-sm"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Gewünschte Leistung</label>
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/75">Gewünschte Leistung</label>
                   <select
                     value={formData.service}
                     onChange={e => updateField("service", e.target.value)}
-                    className="bg-[#0a0a0a] border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white/80 text-sm appearance-none"
+                    className="bg-white/5 border border-white/25 px-4 py-3 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-colors text-white text-sm appearance-none"
                   >
                     <option value="">Bitte wählen...</option>
                     <option>Containerreinigung</option>
@@ -263,14 +263,14 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[9px] uppercase tracking-[0.3em] font-bold text-white/30">Nachricht *</label>
+                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/75">Nachricht *</label>
                 <textarea
                   required
                   rows={5}
                   value={formData.message}
                   onChange={e => updateField("message", e.target.value)}
                   placeholder="Wie können wir helfen? Objekt und Anforderungen kurz beschreiben..."
-                  className="bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-brand-teal transition-colors text-white placeholder:text-white/20 text-sm resize-none"
+                  className="bg-white/5 border border-white/25 px-4 py-3 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-colors text-white placeholder:text-white/50 text-sm resize-none"
                 />
               </div>
 
@@ -305,7 +305,7 @@ export default function Contact() {
                 </p>
               ) : null}
 
-              <p className="text-white/20 text-[10px] text-center leading-relaxed">
+              <p className="text-white/50 text-[10px] text-center leading-relaxed">
                 Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.<br />
                 Wir antworten innerhalb von 24 Stunden.
               </p>
