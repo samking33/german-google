@@ -61,8 +61,8 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-6">
             <a
-              href="tel:061019861163"
-              className="text-[12px] font-mono text-black/60 hover:text-brand-teal transition-colors"
+              href="tel:+4961019861163"
+              className="text-[17px] font-black text-brand-blue hover:text-brand-teal transition-colors tracking-tight"
             >
               +49 6101 98611 63
             </a>
@@ -129,8 +129,8 @@ export default function Navbar() {
               >
                 Anfrage senden
               </Link>
-              <a href="tel:061019861163" className="text-black/60 text-center text-sm">
-                061019861163
+              <a href="tel:+4961019861163" className="text-brand-blue font-black text-xl text-center">
+                +49 6101 98611 63
               </a>
             </motion.div>
           </motion.div>

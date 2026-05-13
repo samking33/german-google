@@ -152,30 +152,20 @@ export default function Hero() {
             <span className="text-[#69e6db] font-medium">Wir arbeiten zuverlässig, diskret und makellos.</span> Seit über 23 Jahren.
           </p>
 
-          <div className="flex flex-col items-start md:items-end gap-5">
-            <a
-              href="tel:+4961019861163"
-              className="group flex items-center gap-3 hover:text-[#69e6db] transition-colors duration-300"
+          <div className="flex items-center gap-6">
+            <Link
+              to="/leistungen"
+              className="group flex items-center gap-4 bg-brand-teal text-brand-dark px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:bg-white transition-all duration-400"
             >
-              <span className="text-3xl md:text-4xl xl:text-5xl font-black text-white tracking-tight group-hover:text-[#69e6db] transition-colors duration-300">
-                +49 6101 98611 63
-              </span>
-            </a>
-            <div className="flex items-center gap-6">
-              <Link
-                to="/leistungen"
-                className="group flex items-center gap-4 bg-brand-teal text-brand-dark px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:bg-white transition-all duration-400"
-              >
-                Leistungen
-                <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
-              </Link>
-              <Link
-                to="/kontakt"
-                className="group flex items-center gap-4 border border-white/35 text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:border-[#69e6db] hover:text-[#69e6db] transition-all duration-400"
-              >
-                Kontakt
-              </Link>
-            </div>
+              Leistungen
+              <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
+            </Link>
+            <Link
+              to="/kontakt"
+              className="group flex items-center gap-4 border border-white/35 text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[12px] hover:border-[#69e6db] hover:text-[#69e6db] transition-all duration-400"
+            >
+              Kontakt
+            </Link>
           </div>
         </motion.div>
       </motion.div>
