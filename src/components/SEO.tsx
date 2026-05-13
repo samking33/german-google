@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://www.m-aktas.de';
+const SITE_URL = 'https://www.m-aktas.com';
 const SITE_NAME = 'Aktas Gebäudereinigung GmbH';
 const DEFAULT_IMAGE = `${SITE_URL}/documents/logo.jpg`;
 

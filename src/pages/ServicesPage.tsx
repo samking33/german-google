@@ -69,7 +69,7 @@ const SERVICES_SCHEMA = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Aktas Gebäudereinigung GmbH',
-        url: 'https://www.m-aktas.de',
+        url: 'https://www.m-aktas.com',
       },
     },
   })),

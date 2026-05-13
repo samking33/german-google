@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /kontakt/danke
 
-Sitemap: https://www.m-aktas.de/sitemap.xml
+Sitemap: https://www.m-aktas.com/sitemap.xml

@@ -263,8 +263,8 @@ const HOME_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Aktas Gebäudereinigung GmbH',
-  url: 'https://www.m-aktas.de',
-  logo: 'https://www.m-aktas.de/documents/logo.jpg',
+  url: 'https://www.m-aktas.com',
+  logo: 'https://www.m-aktas.com/documents/logo.jpg',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+49-6101-98611-63',

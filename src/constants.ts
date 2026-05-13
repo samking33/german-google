@@ -370,7 +370,7 @@ export const CONTACT = {
   sales: "",
   salesName: "",
   email: "info@m-aktas.de",
-  website: "www.m-aktas.de",
+  website: "www.m-aktas.com",
   founded: "2013",
   hours: "Montag – Freitag, 08:00 – 14:00",
 };
