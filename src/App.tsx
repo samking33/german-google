@@ -3,6 +3,7 @@ import { AnimatePresence } from "motion/react";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navbar from "./components/Navbar";
 import WelcomePopup from "./components/WelcomePopup";
+import CookieBanner from "./components/CookieBanner";
 import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
@@ -123,6 +124,9 @@ export default function App() {
 
         {/* Welcome Popup */}
         <WelcomePopup />
+
+        {/* Cookie Banner */}
+        <CookieBanner />
 
         {/* Floating Call Button */}
         <a
