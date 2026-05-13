@@ -183,11 +183,7 @@ function WhyAktas() {
 /* ── REFERENCES SECTION ── */
 function ReferencesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#080808] py-28 px-8">
-      {/* Ambient glows */}
-      <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-brand-teal/8 blur-[100px] pointer-events-none" />
-      <div className="absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-brand-blue/8 blur-[100px] pointer-events-none" />
-
+    <section className="relative overflow-hidden bg-white py-28 px-8">
       <div className="relative max-w-[1440px] mx-auto">
 
         {/* Header */}
@@ -203,39 +199,34 @@ function ReferencesSection() {
             <span className="text-[10px] uppercase tracking-[0.4em] text-brand-teal font-bold">Referenzen</span>
             <div className="w-8 h-[1px] bg-brand-teal" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-serif font-black leading-[0.92] tracking-tight text-white">
+          <h2 className="text-5xl md:text-6xl font-serif font-black leading-[0.92] tracking-tight text-brand-dark">
             UNSERE{" "}
-            <span className="italic font-normal text-white/25">KUNDEN.</span>
+            <span className="italic font-normal text-black/20">KUNDEN.</span>
           </h2>
-          <p className="mt-5 text-white/45 font-light max-w-lg mx-auto text-base leading-relaxed">
+          <p className="mt-5 text-black/50 font-light max-w-lg mx-auto text-base leading-relaxed">
             Unternehmen aus Gewerbe, Verwaltung und Bauprojekten, die auf unsere Qualität vertrauen.
           </p>
         </motion.div>
 
-        {/* Logo grid — always 2×2, centered */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Logo grid — 2 col mobile / 4 col desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black/8 border border-black/8">
           {CLIENT_LOGOS.map((client, index) => (
             <motion.article
               key={client.name}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative flex flex-col items-center justify-center gap-6 border border-white/8 bg-white/[0.04] hover:bg-white/[0.09] hover:border-white/20 transition-all duration-500 p-8 md:p-10 cursor-default"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative flex flex-col items-center justify-center gap-5 bg-white hover:bg-brand-teal/5 transition-colors duration-400 p-10 md:p-14 cursor-default"
             >
-              {/* Corner accent */}
-              <div className="absolute top-0 left-0 w-8 h-[2px] bg-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute top-0 left-0 h-8 w-[2px] bg-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="flex items-center justify-center w-full h-20">
+              <div className="flex items-center justify-center w-full h-16 md:h-20">
                 <img
                   src={client.logo}
                   alt={client.alt}
-                  className={`w-full object-contain ${client.logoClassName} transition-all duration-500 group-hover:scale-105 brightness-0 invert opacity-60 group-hover:opacity-100`}
+                  className={`w-full object-contain ${client.logoClassName} transition-transform duration-400 group-hover:scale-105`}
                 />
               </div>
-
-              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/30 group-hover:text-brand-teal transition-colors duration-300">
+              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-black/30 group-hover:text-brand-teal transition-colors duration-300">
                 {client.name}
               </p>
             </motion.article>
@@ -247,15 +238,15 @@ function ReferencesSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-14 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/8 pt-8"
+          transition={{ delay: 0.3 }}
+          className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-black/8 pt-8"
         >
-          <p className="text-white/35 text-sm font-light text-center md:text-left">
+          <p className="text-black/40 text-sm font-light text-center md:text-left">
             500+ betreute Objekte · bundesweit · seit 2013
           </p>
           <Link
             to="/kontakt"
-            className="group inline-flex items-center gap-3 border border-white/15 text-white/70 px-7 py-3 text-[11px] font-bold uppercase tracking-[0.22em] hover:border-brand-teal hover:text-brand-teal transition-all duration-300"
+            className="group inline-flex items-center gap-3 border border-black/15 text-black/60 px-7 py-3 text-[11px] font-bold uppercase tracking-[0.22em] hover:border-brand-teal hover:text-brand-teal transition-all duration-300"
           >
             Referenzen anfragen
             <ArrowUpRight size={13} className="group-hover:rotate-45 transition-transform" />
