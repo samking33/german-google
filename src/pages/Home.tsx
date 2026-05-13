@@ -33,14 +33,14 @@ const CLIENT_LOGOS = [
     name: "HEBERGER",
     logo: hebergerLogo,
     alt: "HEBERGER Logo",
-    logoClassName: "max-h-14",
+    logoClassName: "max-h-20",
   },
   {
     id: "04",
     name: "Care Vision",
     logo: careVisionLogo,
     alt: "Care Vision Logo",
-    logoClassName: "max-h-14",
+    logoClassName: "max-h-20",
   },
 ] as const;
 
