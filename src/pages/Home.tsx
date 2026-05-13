@@ -11,6 +11,7 @@ import { ArrowUpRight } from "lucide-react";
 import reweLogo from "../../client logos/Logo_REWE.svg.png";
 import interriskLogo from "../../client logos/InterRisk VIENNA INSURANCE GROUP.jpg";
 import hebergerLogo from "../../client logos/HEBERGER.webp";
+import careVisionLogo from "../../client logos/care.png";
 
 const CLIENT_LOGOS = [
   {
@@ -32,6 +33,13 @@ const CLIENT_LOGOS = [
     name: "HEBERGER",
     logo: hebergerLogo,
     alt: "HEBERGER Logo",
+    logoClassName: "max-h-14",
+  },
+  {
+    id: "04",
+    name: "Care Vision",
+    logo: careVisionLogo,
+    alt: "Care Vision Logo",
     logoClassName: "max-h-14",
   },
 ] as const;

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Link } from "react
 import { AnimatePresence } from "motion/react";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navbar from "./components/Navbar";
+import WelcomePopup from "./components/WelcomePopup";
 import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
@@ -119,6 +120,9 @@ export default function App() {
 
         {/* Navbar */}
         <Navbar />
+
+        {/* Welcome Popup */}
+        <WelcomePopup />
 
         {/* Main Content */}
         <main>
