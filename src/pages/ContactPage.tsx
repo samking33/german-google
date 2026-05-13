@@ -53,7 +53,7 @@ export default function ContactPage() {
     >
       <SEO
         title="Kontakt – Kostenloses Angebot anfordern"
-        description="Kontaktieren Sie Aktas Gebäudereinigung GmbH für ein kostenloses Angebot. Telefon: 06101 / 98 611 63 – E-Mail: info@m-aktas.de – Antwort innerhalb von 24 Stunden."
+        description="Kontaktieren Sie Aktas Gebäudereinigung GmbH für ein kostenloses Angebot. Telefon: 06101 / 98 611 63 – E-Mail: service@m-aktas.com – Antwort innerhalb von 24 Stunden."
         canonical="/kontakt"
         breadcrumbs={[{ name: 'Kontakt', url: '/kontakt' }]}
       />

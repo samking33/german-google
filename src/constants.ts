@@ -369,7 +369,7 @@ export const CONTACT = {
   phone: "06101 / 98 611 63",
   sales: "",
   salesName: "",
-  email: "info@m-aktas.de",
+  email: "service@m-aktas.com",
   website: "www.m-aktas.com",
   founded: "2013",
   hours: "Montag – Freitag, 08:00 – 14:00",

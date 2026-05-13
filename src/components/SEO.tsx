@@ -13,7 +13,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   description: 'Professionelle Gebäudereinigung seit 2013. Unterhaltsreinigung, Glasreinigung, Fassadenreinigung, Baureinigung und mehr – bundesweit.',
   url: SITE_URL,
   telephone: '+49-6101-98611-63',
-  email: 'info@m-aktas.de',
+  email: 'service@m-aktas.com',
   foundingDate: '2013',
   numberOfEmployees: { '@type': 'QuantitativeValue', value: 70 },
   image: DEFAULT_IMAGE,
