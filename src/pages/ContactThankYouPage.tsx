@@ -34,8 +34,15 @@ export default function ContactThankYouPage() {
         enquiryThankYouPage: "/kontakt/danke",
       });
 
-      if (window.gtag) {
+      // Use gtag if loaded, otherwise push directly to dataLayer so the event
+      // is queued and processed when the gtag script eventually loads.
+      if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', { send_to: 'AW-18053666744/kpxeCO3v-pscELiv1KBD' });
+      } else {
+        (window.dataLayer = window.dataLayer || []).push({
+          'event': 'conversion',
+          'send_to': 'AW-18053666744/kpxeCO3v-pscELiv1KBD',
+        });
       }
 
       markContactSubmissionTracked(submissionMarker.id);

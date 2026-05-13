@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { IMAGES } from "../constants";
+import SEO from "../components/SEO";
 
 function DatenschutzHero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -48,6 +49,12 @@ export default function DatenschutzPage() {
       transition={{ duration: 0.5 }}
       className="bg-brand-warm"
     >
+      <SEO
+        title="Datenschutzerklärung"
+        description="Datenschutzerklärung der Aktas Gebäudereinigung GmbH gemäß DSGVO."
+        canonical="/datenschutz"
+        noindex={true}
+      />
       <DatenschutzHero />
 
       <section className="relative bg-brand-warm text-brand-dark">

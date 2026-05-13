@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, IMAGES } from "../constants";
+import SEO from "../components/SEO";
 
 function LegalHero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -61,6 +62,12 @@ export default function LegalPage() {
       transition={{ duration: 0.5 }}
       className="bg-brand-warm"
     >
+      <SEO
+        title="Impressum & AGB"
+        description="Impressum und Allgemeine Geschäftsbedingungen der Aktas Gebäudereinigung GmbH, Friedrich-Ebert-Str. 47, 61118 Bad Vilbel."
+        canonical="/impressum"
+        noindex={true}
+      />
       <LegalHero />
 
       <section className="relative bg-brand-warm text-brand-dark">

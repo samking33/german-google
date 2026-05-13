@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import About from "../components/About";
+import SEO from "../components/SEO";
 import { IMAGES } from "../constants";
 
 function AboutHero() {
@@ -52,7 +53,13 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="bg-brand-dark"
         >
-      <About variant="detail" />
+            <SEO
+                title="Über uns – Aktas Gebäudereinigung GmbH seit 2013"
+                description="Lernen Sie Aktas Gebäudereinigung GmbH kennen. Seit 2013 bieten wir professionelle Gebäudereinigung mit über 70 Mitarbeitern und 500+ betreuten Objekten bundesweit. Geschäftsführer: Mithat Aktas."
+                canonical="/ueber-uns"
+                breadcrumbs={[{ name: 'Über uns', url: '/ueber-uns' }]}
+            />
+            <About variant="detail" />
         </motion.div>
     );
 }

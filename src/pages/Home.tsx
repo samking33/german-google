@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Services from "../components/Services";
 import Contact from "../components/Contact";
+import SEO from "../components/SEO";
 import { IMAGES } from "../constants";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -258,9 +259,41 @@ function ReferencesSection() {
   );
 }
 
+const HOME_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Aktas Gebäudereinigung GmbH',
+  url: 'https://www.m-aktas.de',
+  logo: 'https://www.m-aktas.de/documents/logo.jpg',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+49-6101-98611-63',
+    contactType: 'customer service',
+    availableLanguage: 'German',
+    hoursAvailable: 'Mo-Fr 08:00-14:00',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Reinigungsleistungen',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Unterhaltsreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glasreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fassadenreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Bauendreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Grundreinigung' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Winterdienst' } },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <div>
+      <SEO
+        canonical="/"
+        description="Aktas Gebäudereinigung GmbH – Ihr zuverlässiger Partner für professionelle Gebäudereinigung seit 2013. 70+ Mitarbeiter, 500+ Objekte, bundesweit tätig. Unterhaltsreinigung, Glasreinigung, Fassadenreinigung & mehr."
+        schema={HOME_SCHEMA}
+      />
       <Hero />
       <Services />
       <StatementSection />

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { CheckCircle2, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SERVICES, IMAGES } from "../constants";
+import SEO from "../components/SEO";
 
 function ServiceHero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -54,6 +55,26 @@ function ServiceHero() {
   );
 }
 
+const SERVICES_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Reinigungsleistungen – Aktas Gebäudereinigung GmbH',
+  itemListElement: SERVICES.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: s.title,
+      description: s.description,
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Aktas Gebäudereinigung GmbH',
+        url: 'https://www.m-aktas.de',
+      },
+    },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <motion.div
@@ -63,6 +84,13 @@ export default function ServicesPage() {
       transition={{ duration: 0.5 }}
       className="bg-brand-dark"
     >
+      <SEO
+        title="Leistungen – Gebäudereinigung, Glasreinigung & mehr"
+        description="Alle Reinigungsleistungen der Aktas Gebäudereinigung GmbH: Unterhaltsreinigung, Glasreinigung, Fassadenreinigung, Bauendreinigung, Grundreinigung, Winterdienst & mehr – professionell und bundesweit."
+        canonical="/leistungen"
+        breadcrumbs={[{ name: 'Leistungen', url: '/leistungen' }]}
+        schema={SERVICES_SCHEMA}
+      />
       <ServiceHero />
 
       {/* SERVICES DETAIL */}

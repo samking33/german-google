@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Contact from "../components/Contact";
+import SEO from "../components/SEO";
 import { IMAGES } from "../constants";
 
 function ContactHero() {
@@ -50,6 +51,12 @@ export default function ContactPage() {
       transition={{ duration: 0.5 }}
       className="bg-brand-dark"
     >
+      <SEO
+        title="Kontakt – Kostenloses Angebot anfordern"
+        description="Kontaktieren Sie Aktas Gebäudereinigung GmbH für ein kostenloses Angebot. Telefon: 06101 / 98 611 63 – E-Mail: info@m-aktas.de – Antwort innerhalb von 24 Stunden."
+        canonical="/kontakt"
+        breadcrumbs={[{ name: 'Kontakt', url: '/kontakt' }]}
+      />
       <ContactHero />
       <Contact />
     </motion.div>
