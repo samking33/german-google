@@ -124,6 +124,21 @@ export default function App() {
         {/* Welcome Popup */}
         <WelcomePopup />
 
+        {/* Floating Call Button */}
+        <a
+          href="tel:+4961019861163"
+          aria-label="Jetzt anrufen"
+          className="fixed bottom-6 right-6 z-[190] group flex items-center gap-3 bg-brand-teal text-brand-dark pl-4 pr-5 py-3.5 rounded-full shadow-[0_8px_32px_rgba(0,196,179,0.45)] hover:shadow-[0_8px_40px_rgba(0,196,179,0.65)] hover:bg-white transition-all duration-300"
+        >
+          <span className="relative flex h-5 w-5 flex-shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-dark opacity-20" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="relative w-5 h-5">
+              <path fillRule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clipRule="evenodd" />
+            </svg>
+          </span>
+          <span className="text-[13px] font-black tracking-tight whitespace-nowrap">+49 6101 98611 63</span>
+        </a>
+
         {/* Main Content */}
         <main>
           <AnimatedRoutes />
